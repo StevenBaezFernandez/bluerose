@@ -10,6 +10,7 @@ import { CeremoniaComponent } from './ceremonia/ceremonia.component';
 import { CumpleanosComponent } from './cumpleanos/cumpleanos.component';
 import { BabyShowerComponent } from './baby-shower/baby-shower.component';
 import { AniversarioComponent } from './aniversario/aniversario.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AniversarioComponent } from './aniversario/aniversario.component';
     CeremoniaComponent,
     CumpleanosComponent,
     BabyShowerComponent,
-    AniversarioComponent
+    AniversarioComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
