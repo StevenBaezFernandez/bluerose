@@ -1,3 +1,4 @@
+$dark6: #555555
 .navbar
     position: fixed
     top: 0
@@ -6,14 +7,25 @@
     width: 260px
     overflow: hidden
     background: #e5e8ec
+    overflow-y: scroll
+.navbar::-webkit-scrollbar
+    width: 8px
+    background-color: #e5e8ec
+
+.navbar::-webkit-scrollbar-track
+    background-color: #e5e8ec
+
+.navbar::-webkit-scrollbar-thumb
+    background-color: #a6adb6
+    border-radius: 5px
 .navbar__header
     display: flex
     justify-content: center
     margin-top: 20px
 .navbar__container-img
     background: #ffffff
-    width: 50%
-    padding: 25px 30px
+    width: 40%
+    padding: 25px
     margin: auto 20px
     border-radius: 5px
     box-shadow: .5px 2px 2px rgba(0,0,0,.05)
@@ -24,24 +36,34 @@
 .navbar__separator
     width: 85%
     height: 1px 
-    background: #ccc
+    background: #bbb
     margin: auto
     margin-top: 20px
     margin-bottom: 20px
 
 .navbar__container-body
     padding-left: 15px
+.navbar__item
+    margin: 8px
 .button-nav
     display: grid
     grid-template-columns: 50px 1fr 20px 
     align-items: center
+    margin-left: -15px
+    padding-left: 15px
+    cursor: pointer
+.button-nav--active
+    background: #d9dadc
 .button-nav__text
-    font-weight: 500
-    color: #222
+    font-weight: 400
+    color: $dark6
 .button-nav__arrow
-    color: #222
+    color: $dark6
 .navbar__sub-cat
-    padding: 15px 0px 15px 10px
+    padding-left: 10px
+    max-height: 1px
+    overflow: hidden
+
 .navbar__sub-cat-link
     display: block
     padding: 5px
