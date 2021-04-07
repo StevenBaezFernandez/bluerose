@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-ajuares',
   templateUrl: './ajuares.component.html',
-  styleUrls: ['./ajuares.component.sass']
+  styleUrls: ['../../../assets/style/style-component.sass','./ajuares.component.sass']
 })
 export class AjuaresComponent implements OnInit {
 
