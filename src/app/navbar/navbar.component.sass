@@ -1,22 +1,26 @@
-$dark6: #555555
+$dark6: #333333
+$blue-text: #0e60b3
+$hover-button-nav: #e5e8ec
+$active-button-nav: #d2d4d6
 .navbar
     position: fixed
     top: 0
     left: 0
     bottom: 0
-    width: 260px
+    width: 285px
     overflow: hidden
-    background: #e5e8ec
+    background: $hover-button-nav
     overflow-y: scroll
 .navbar::-webkit-scrollbar
     width: 8px
-    background-color: #e5e8ec
+    background-color: $hover-button-nav
 
 .navbar::-webkit-scrollbar-track
-    background-color: #e5e8ec
+    background-color: $hover-button-nav
 
 .navbar::-webkit-scrollbar-thumb
     background-color: #ccc
+    border-radius: 10px
 
 .navbar__header
     display: flex
@@ -42,34 +46,64 @@ $dark6: #555555
     margin-bottom: 20px
 
 .navbar__container-body
-    padding-left: 15px
 .navbar__item
-    margin: 8px
 .button-nav
     display: grid
     grid-template-columns: 50px 1fr 20px 
     align-items: center
-    margin-left: -15px
     padding-left: 15px
     cursor: pointer
+    height: 45px
+    &:hover
+        background-color: #d9dadc
 .button-nav--active
-    background: #d9dadc
+    background-color: $active-button-nav
 .button-nav__img
-    max-width: 40px
+    max-width: 30px
 .button-nav__text
     font-weight: 400
     color: $dark6
+    transition: all ease .3
+.button-nav__text--active
+    color: $blue-text
+    font-weight: 500
+    transition: all ease .3s
 .button-nav__arrow
     color: $dark6
-.navbar__sub-cat
-    padding-left: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    transition: all .3s ease
+.button-nav__arrow--active
+    color: $blue-text
+    transform: rotate(90deg)
+    margin-bottom: 0
+    .navbar__sub-cat
+        transition: all 2s ease
+    
+@keyframes open_sub_cat
+    0%
+        max-height: 1px
+        overflow: hidden
+    100%
+        max-height: 4000px
+        overflow: none
+.navbar__sub-cat--collapsed
+    transition: all .5s ease
+    animation-direction: reverse    
     max-height: 1px
+    opacity: 0
     overflow: hidden
-.navbar__sub-cat--active
-    max-height: 4000px
+.navbar__sub-cat--expanded
+    max-height: 2000px
+    transition: all 1.3s ease
+    opacity: 1
     overflow: none
 .navbar__sub-cat-link
     display: block
-    padding: 5px
-    color: #000
+    padding: 10px 0px 10px 15px
+    color: #444
+    font-size: 14px
     text-decoration: none
+    &:hover
+        background: #d9dadc

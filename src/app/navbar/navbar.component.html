@@ -8,13 +8,13 @@
     <div class="navbar__separator"></div>
     <div class="navbar__container-body">
         <div class="navbar__item">
-            <div class="button-nav button-nav--active">
+            <div class="button-nav button-nav--active" (click)="toggle_novia = !toggle_novia">
                 <img class="button-nav__img" src="assets/img/novia.svg" alt="">
                                        
-                <span class="button-nav__text">Novia</span>
-                <i class="button-nav__arrow fas fa-chevron-right"></i>
+                <span  class="button-nav__text" [ngClass]="{'button-nav__text--active': toggle_novia}">Novia</span>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_novia}"></i>
             </div>
-            <div class="navbar__sub-cat navbar__sub-cat--active">
+            <div class="navbar__sub-cat"  [ngClass]="{'navbar__sub-cat--expanded' : toggle_novia, 'navbar__sub-cat--collapsed': !toggle_novia}">
                 <a href="" class="navbar__sub-cat-link">Maquillaje y peinados</a>
                 <a href="" class="navbar__sub-cat-link">Vestidos</a>
                 <a href="" class="navbar__sub-cat-link">Bouquet</a>
@@ -22,26 +22,26 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav">
+            <div class="button-nav" (click)="toggle_novio = !toggle_novio">
                 <img class="button-nav__img" src="assets/img/novio.svg" alt="">                 
                                      
                 <span class="button-nav__text">Novio</span>
-                <i class="button-nav__arrow fas fa-chevron-right"></i>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_novio}"></i>
             </div>
-            <div class="navbar__sub-cat">
+            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_novio, 'navbar__sub-cat--collapsed': !toggle_novio}">
                 <a href="" class="navbar__sub-cat-link">Traje de novio</a>
                 <a href="" class="navbar__sub-cat-link">Boutonnier</a>
                 <a href="" class="navbar__sub-cat-link">Ajuares</a>
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav">
+            <div class="button-nav" (click)="toggle_recepcion = !toggle_recepcion">
                 <img class="button-nav__img" src="assets/img/recepcion.svg" alt="">                   
                                      
                 <span class="button-nav__text">Recepción</span>
-                <i class="button-nav__arrow fas fa-chevron-right"></i>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_recepcion}"></i>
             </div>
-            <div class="navbar__sub-cat">
+            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_recepcion, 'navbar__sub-cat--collapsed': !toggle_recepcion}">
                 <a href="" class="navbar__sub-cat-link">Salones de eventos</a>
                 <a href="" class="navbar__sub-cat-link">Estilos de decoraciones</a>
                 <a href="" class="navbar__sub-cat-link">Sillas y mesas</a>
@@ -51,21 +51,21 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav">
+            <div class="button-nav" >
                 <img class="button-nav__img" src="assets/img/invitation.svg" alt="">
                                      
                 <span class="button-nav__text">Invitaciones y subeniles</span>
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav">
+            <div class="button-nav" (click)="toggle_foto_video = !toggle_foto_video">
                 <img class="button-nav__img" src="assets/img/foto-video.svg" alt="">
                     
                                      
                 <span class="button-nav__text">Fotografía y video</span>
-                <i class="button-nav__arrow fas fa-chevron-right"></i>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_foto_video}"></i>
             </div>
-            <div class="navbar__sub-cat">
+            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_foto_video, 'navbar__sub-cat--collapsed': !toggle_foto_video}">
                 <a href="" class="navbar__sub-cat-link">Secciones de fotos</a>
                 <a href="" class="navbar__sub-cat-link">Locaciones</a>
             </div>
@@ -77,13 +77,13 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav">
+            <div class="button-nav" (click)="toggle_banquetes = !toggle_banquetes">
                 <img class="button-nav__img" src="assets/img/banquet.svg" alt="">
                                      
                 <span class="button-nav__text">Banquetes</span>
-                <i class="button-nav__arrow fas fa-chevron-right"></i>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_banquetes}"></i>
             </div>
-            <div class="navbar__sub-cat">
+            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_banquetes, 'navbar__sub-cat--collapsed': !toggle_banquetes}">
                 <a href="" class="navbar__sub-cat-link">Postres dulces</a>
                 <a href="" class="navbar__sub-cat-link">Postres salados</a>
                 <a href="" class="navbar__sub-cat-link">Buffet</a>
@@ -98,13 +98,13 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav">
+            <div class="button-nav" (click)="toggle_flores = !toggle_flores">
                <img class="button-nav__img" src="assets/img/bouquet.svg" alt="">
                                      
                 <span class="button-nav__text">Flores</span>
-                <i class="button-nav__arrow fas fa-chevron-right"></i>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_flores}"></i>
             </div>
-            <div class="navbar__sub-cat">
+            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_flores, 'navbar__sub-cat--collapsed': !toggle_flores}">
                 <a href="" class="navbar__sub-cat-link">Altos</a>
                 <a href="" class="navbar__sub-cat-link">Bajitos</a>
                 <a href="" class="navbar__sub-cat-link">Estilos</a>
