@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-platos',
   templateUrl: './platos.component.html',
-  styleUrls: ['./platos.component.sass']
+  styleUrls: ['../../style/style-component.sass','./platos.component.sass']
 })
 export class PlatosComponent implements OnInit {
 

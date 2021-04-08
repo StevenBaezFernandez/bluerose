@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  toggle_novia:boolean = false;
+  toggle_novia:boolean = true;
   toggle_novio:boolean = false;
   toggle_recepcion:boolean = false;
   toggle_foto_video:boolean = false;
