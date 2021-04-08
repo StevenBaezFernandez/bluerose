@@ -4,6 +4,11 @@ import { BebidaComponent } from './banquetes/bebida/bebida.component';
 import { BuffetComponent } from './banquetes/buffet/buffet.component';
 import { PostresDulcesComponent } from './banquetes/postres-dulces/postres-dulces.component';
 import { PostresSaladosComponent } from './banquetes/postres-salados/postres-salados.component';
+import { AltosComponent } from './flores/altos/altos.component';
+import { BajitosComponent } from './flores/bajitos/bajitos.component';
+import { EstilosComponent } from './flores/estilos/estilos.component';
+import { OtrosComponent } from './flores/otros/otros.component';
+import { LocacionesComponent } from './foto-video/locaciones/locaciones.component';
 import { SesionesFotosComponent } from './foto-video/sesiones-fotos/sesiones-fotos.component';
 import { AjuaresComponent } from './novia/ajuares/ajuares.component';
 import { BouquetComponent } from './novia/bouquet/bouquet.component';
@@ -32,7 +37,7 @@ const routes: Routes = [
     path: 'novio', 
     children:[
       { path: 'traje-novio', component: TrajeNovioComponent },
-      { path: 'boutonier', component: BoutonnerComponent },
+      { path: 'boutonnier', component: BoutonnerComponent },
       { path: 'ajuares', component: AjuaresComponent } //arreglar
     ]
   },
@@ -51,7 +56,7 @@ const routes: Routes = [
     path: 'foto-video', 
     children:[
       { path: 'secciones', component: SesionesFotosComponent },
-      { path: 'locaciones', component: BoutonnerComponent }
+      { path: 'locaciones', component: LocacionesComponent }
     ]
   },
   {
@@ -61,6 +66,16 @@ const routes: Routes = [
       { path: 'postres-salados', component: PostresSaladosComponent },
       { path: 'buffet', component: BuffetComponent },
       { path: 'bebida', component: BebidaComponent }      
+
+    ]
+  },
+  {
+    path: 'flores', 
+    children:[
+      { path: 'altos', component: AltosComponent },
+      { path: 'bajitos', component: BajitosComponent },
+      { path: 'estilos', component: EstilosComponent },
+      { path: 'otros', component: OtrosComponent }      
 
     ]
   }
