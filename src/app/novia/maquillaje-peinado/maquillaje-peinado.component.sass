@@ -1,9 +1,11 @@
+$OpenSands: 'Open Sans'
 .header-component
     display: flex
     justify-content: space-between
     align-items: center
     border-bottom: 1px solid #eee
     padding: 10px
+    margin-bottom: 10px
 .header-component__text-info
     display: flex
     align-items: center
@@ -13,9 +15,11 @@
     font-weight: 400
     color: #292a2c
     text-transform: uppercase
+    font-family: 'Open Sans', sans-serif
 .header-component__text-info-cat2
     margin: 0
     font-weight: normal
+    font-family: 'Open Sans', sans-serif
     color: #292a2c
 .separator-line
     height: 40px
@@ -24,3 +28,105 @@
     background: #ccc
 .header-component__photo-profile-img
     width: 50px
+
+.content-component
+    padding: 10px 
+.content-component__header   
+    background: #eee
+    padding: 5px 0px
+.tabs-menu
+    display: flex
+.tabs-menu__item
+    padding: 15px
+    cursor: pointer 
+    list-style: none
+    text-transform: uppercase
+.tabs-menu__item-active
+    font-weight: 500
+    color: #000
+    position: relative
+    &::before
+        content: ""
+        display: block
+        position: absolute
+        bottom: 12px 
+        height: 2px 
+        width: calc( 100% - 30px )
+        background: #000
+.content-component__body
+    background: #f7f7f7
+    padding: 10px
+.galeria
+    max-width: 100%
+    display: none
+.galeria__grid-imgs
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: 40px
+.galeria__grid-img-container
+    height: 240px
+    border-radius: 3px
+    box-shadow: 2px 4px 6px rgba(0,0,0,.2 )
+    overflow: hidden
+.galeria__grid-img
+    width: 100%
+    cursor: pointer
+.paquetes
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: 20px
+    padding: 30px 10px
+    display: none
+.paquete
+    background: #fff
+    padding: 20px
+    border-radius: 5px
+    box-shadow: 1px 3px 6px rgba(0, 0, 0, .2)
+    position: relative
+.paquete__title
+    font-size: 1.3em
+    color: #444
+    text-transform: uppercase
+    font-weight: 500
+.paquete_lista-items
+    padding: 0px 20px
+    list-style: square
+.paquete__item
+    padding: 5px
+    text-transform: uppercase   
+.paquete__three-dots
+    position: absolute
+    top: 20px
+    right: 20px
+    color: #444 
+    cursor: pointer
+.proveedor
+    background: #fff
+    display: flex
+    margin-bottom: 10px
+    position: relative
+    align-items: center
+    padding: 10px 15px
+    width: 80%
+    border-radius: 5px
+    box-shadow: 2px 2px 4px rgba(0,0,0,.1)
+    & > *
+        margin-right: 30px
+.proveedor_photo
+    font-size: 4em
+    color: #555
+.proveedor__three-dots
+    position: absolute
+    top: calc(50% - 8px) 
+    right: -10px
+    color: #777
+.proveedor__placeholder-name,
+.proveedor__placeholder-correo,
+.proveedor__placeholder-telefono
+    color: #444
+    font-weight: 500
+
+.proveedor__value-name,
+.proveedor__value-correo,
+.proveedor__value-telefono
+    color: #5f5f5f
