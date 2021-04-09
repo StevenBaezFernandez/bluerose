@@ -6,8 +6,6 @@ import { PostresDulcesComponent } from './banquetes/postres-dulces/postres-dulce
 import { PostresSaladosComponent } from './banquetes/postres-salados/postres-salados.component';
 import { AltosComponent } from './flores/altos/altos.component';
 import { BajitosComponent } from './flores/bajitos/bajitos.component';
-import { EstilosComponent } from './flores/estilos/estilos.component';
-import { OtrosComponent } from './flores/otros/otros.component';
 import { LocacionesComponent } from './foto-video/locaciones/locaciones.component';
 import { SesionesFotosComponent } from './foto-video/sesiones-fotos/sesiones-fotos.component';
 import { AjuaresComponent } from './novia/ajuares/ajuares.component';
@@ -22,6 +20,8 @@ import { EstiloDecoracionesComponent } from './recepcion/estilo-decoraciones/est
 import { PlatosComponent } from './recepcion/platos/platos.component';
 import { SalonesEventosComponent } from './recepcion/salones-eventos/salones-eventos.component';
 import { SillasMesasComponent } from './recepcion/sillas-mesas/sillas-mesas.component';
+import { EstilosComponent} from './flores/estilos/estilos.component';
+import { OtrosComponent } from './flores/otros/otros.component';
 
 const routes: Routes = [
   {

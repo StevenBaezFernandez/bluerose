@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-bebida',
   templateUrl: './bebida.component.html',
   styleUrls: ['../../style/style-component.sass','./bebida.component.sass']
+
 })
 export class BebidaComponent implements OnInit {
 
