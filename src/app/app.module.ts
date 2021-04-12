@@ -11,6 +11,12 @@ import { CumpleanosComponent } from './cumpleanos/cumpleanos.component';
 import { BabyShowerComponent } from './baby-shower/baby-shower.component';
 import { AniversarioComponent } from './aniversario/aniversario.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NoviaModule } from './novia/novia.module';
+import { NovioModule } from './novio/novio.module';
+import { RecepcionModule } from './recepcion/recepcion.module';
+import { FotoVideoModule } from './foto-video/foto-video.module';
+import { BanquetesModule } from './banquetes/banquetes.module';
+import { FloresModule } from './flores/flores.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,13 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoviaModule,
+    NovioModule,
+    RecepcionModule,
+    FotoVideoModule,
+    BanquetesModule,
+    FloresModule
   ],
   providers: [],
   bootstrap: [AppComponent]

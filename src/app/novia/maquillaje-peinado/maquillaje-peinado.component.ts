@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaquillajePeinadoComponent implements OnInit {
 
+  tabs:any = {
+    galeria: true,
+    paquetes: false,
+    proveedores: false
+  }
+
+  toggle_tabs(){
+    this.tabs.galeria = false;
+    this.tabs.paquetes = false;
+    this.tabs.proveedores = false;
+  }
+
+
   constructor() { }
 
   ngOnInit(): void {

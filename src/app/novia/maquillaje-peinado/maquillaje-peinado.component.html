@@ -12,13 +12,13 @@
     <div class="content-component">
         <div class="content-component__header">
             <nav class="tabs-menu">
-                <li class="tabs-menu__item ">Galería</li>
-                <li class="tabs-menu__item ">Paquetes</li>
-                <li class="tabs-menu__item tabs-menu__item-active">Proveedores</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.galeria}" (click)="toggle_tabs(); tabs.galeria = true;">Galería</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.paquetes}" (click)="toggle_tabs(); tabs.paquetes = true">Paquetes</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.proveedores}" (click)="toggle_tabs(); tabs.proveedores = true">Proveedores</li>
             </nav>
         </div>            
         <div class="content-component__body">
-            <div class="galeria">
+            <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}">
                 <div class="galeria__grid-imgs">
                     <div class="galeria__grid-img-container"><img src="assets/img/maquillaje1.jpg" class="galeria__grid-img" alt=""></div>
                     <div class="galeria__grid-img-container"><img src="assets/img/maquillaje2.jpg" class="galeria__grid-img" alt=""></div>
@@ -33,7 +33,7 @@
                     <div class="galeria__grid-img-container"><img src="assets/img/maquillaje9.jpg" class="galeria__grid-img" alt=""></div>
                 </div>
             </div>
-            <div class="paquetes">
+            <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
                 <div class="paquete">
                     <i class="paquete__three-dots fas fa-ellipsis-v"></i>
                     <h3 class="paquete__title">Paquete numero 1</h3>
@@ -105,7 +105,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="proveedores">
+            <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
                 <div class="proveedor">
                     <i class="proveedor__three-dots fas fa-ellipsis-v"></i>
                     <i class="proveedor_photo fas fa-user-circle"></i>
