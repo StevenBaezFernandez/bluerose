@@ -181,11 +181,25 @@ $color-btn-enviar: #2E9AFE
     background: #fefefe
     box-shadow: 1px 3px 5px rgba(0,0,0,.4)
     padding: 20px
-.editar-nombre-form
+    transform: translateX(250px)
+    opacity: 0
+    visibility: hidden
+.option-panel-active
+    animation: show_panel .2s ease .1s forwards
+@keyframes show_panel
+    0%
+        transform: translateX(250px)
+        opacity: 0
+        visibility: hidden
+    100%
+        transform: translateX(0px)
+        opacity: 1
+        visibility: visible
+        
+.option-panel__form
     display: none
-.editar-nombre-form-active
-    display: block  
-
+.option-panel__form-active
+    display: block
 .option-panel__close
     width: 30px
     position: absolute
@@ -225,3 +239,16 @@ $color-btn-enviar: #2E9AFE
     border: 2px solid #555
     border-radius: 3px
     font-size: 20px  
+.option-panel__warning-delete
+    font-weight: normal
+.option-panel__red
+    color: #ff3f3f
+.option-panel__btn-options
+    font-size: 16px
+    border: none
+    padding: 10px 15px
+    margin: 0px 4px
+    box-shadow: 2px 2px 1px rgba(0,0,0,.1)
+    cursor: pointer
+.option-panel__wraper-btns
+    margin-bottom: 20px

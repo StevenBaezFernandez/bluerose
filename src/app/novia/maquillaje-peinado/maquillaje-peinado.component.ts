@@ -10,6 +10,15 @@ export class MaquillajePeinadoComponent implements OnInit {
   options_forms:any = {
     editar_nombre: true
   }
+  show_option_panel = false;
+  toggle_option_panel(event:any){
+    this.show_option_panel = !this.show_option_panel;
+    const forms = document.querySelectorAll(".option-panel__form");
+    forms.forEach((form)=>{
+      form.classList.remove('option-panel__form-active');
+    });
+    document.getElementById(event.target.dataset.option).classList.add('option-panel__form-active');
+  }
   toggle_form(){
   }
   tabs:any = {
@@ -24,9 +33,15 @@ export class MaquillajePeinadoComponent implements OnInit {
     this.tabs.proveedores = false;
   }
   toggle_menu(event:any){
-    console.log(event.target.dataset.menu);
+    console.log(event);
     let menu = document.querySelector(`.${ event.target.dataset.menu }`);
-    menu.classList.toggle(`paquete__menu-active`);
+    if(event.type == 'blur'){
+      setTimeout(()=>{
+        menu.classList.toggle(`paquete__menu-active`);
+      },200)
+    }else{
+      menu.classList.toggle(`paquete__menu-active`);
+    }
     
 
   }

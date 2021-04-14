@@ -39,11 +39,9 @@
                     <h3 class="paquete__title">Paquete numero 1</h3>
                     <div class="paquete__menu paquete__menu1">
                         <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item">Editar nombre paquete</li>
-                            <li class="paquete__menu-item">Eliminar paquete</li>
-                            <li class="paquete__menu-item">Agregar elementos</li>
-                            <li class="paquete__menu-item">Editar elementos</li>
-                            <li class="paquete__menu-item">Eliminar elementos</li>
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar elementos</li>
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
@@ -218,16 +216,72 @@
             </div>  
         </div>
     </div>
-    <div class="option-panel">
-        <img src="assets/img/close.svg" alt="" class="option-panel__close">
-        <div class="editar-nombre-form" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+    <div class="option-panel" [ngClass]="{'option-panel-active': show_option_panel}">
+        <img src="assets/img/close.svg" alt="" class="option-panel__close" (click)="toggle_option_panel($event)">
+        <div class="option-panel__form " id="editar-nombre-paq" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
             <h2 class="option-panel__title">Editar paquete numero1</h2>
-            <label for="nombre-paquete" class="option-panel__label">Nombre del paquete:</label>
+            <label for="nombre-paquete" class="option-panel__label">Nuevo nombre del paquete:</label>
             <input type="text" class="optin-panel__input" id="nombre-paquete">
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Enviar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
+
+        <div class="option-panel__form" id="eliminar-paq" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+            <h2 class="option-panel__title">Eliminar paquete numero1</h2>
+            <h3 class="option-panel__warning-delete">¿Esta seguro que desea eliminar el paquete <span class="option-panel__red">Paquete1</span>?</h3>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="option-panel__form" id="editar-elementos" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+            <h2 class="option-panel__title">Elementos del paquete numero1</h2>
+            <div class="option-panel__wraper-btns">
+                <button class="option-panel__btn-options">Eliminar</button>
+                <button class="option-panel__btn-options">Editar</button>
+                <button class="option-panel__btn-options">Agregar</button>
+            </div>
+
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="1" id="1">
+                <label for="1" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="2" id="2">
+                <label for="2" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="3" id="3">
+                <label for="3" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="4" id="4">
+                <label for="4" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="5" id="5">
+                <label for="5" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="6" id="6">
+                <label for="6" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="7" id="7">
+                <label for="7" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="8" id="8">
+                <label for="8" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
     </div>
 </div>
