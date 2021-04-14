@@ -35,8 +35,17 @@
             </div>
             <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
                 <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v"></i>
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 1</h3>
+                    <div class="paquete__menu paquete__menu1">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item">Editar nombre paquete</li>
+                            <li class="paquete__menu-item">Eliminar paquete</li>
+                            <li class="paquete__menu-item">Agregar elementos</li>
+                            <li class="paquete__menu-item">Editar elementos</li>
+                            <li class="paquete__menu-item">Eliminar elementos</li>
+                        </ul>
+                    </div>
                     <ul class="paquete_lista-items">
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
@@ -49,8 +58,17 @@
                     </ul>
                 </div>
                 <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v"></i>
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu2" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 2</h3>
+                    <div class="paquete__menu paquete__menu2">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item">Editar nombre paquete</li>
+                            <li class="paquete__menu-item">Eliminar paquete</li>
+                            <li class="paquete__menu-item">Agregar elementos</li>
+                            <li class="paquete__menu-item">Editar elementos</li>
+                            <li class="paquete__menu-item">Eliminar elementos</li>
+                        </ul>
+                    </div>
                     <ul class="paquete_lista-items">
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
@@ -63,8 +81,17 @@
                     </ul>
                 </div>
                 <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v"></i>
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu3" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 3</h3>
+                    <div class="paquete__menu paquete__menu3">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item">Editar nombre paquete</li>
+                            <li class="paquete__menu-item">Eliminar paquete</li>
+                            <li class="paquete__menu-item">Agregar elementos</li>
+                            <li class="paquete__menu-item">Editar elementos</li>
+                            <li class="paquete__menu-item">Eliminar elementos</li>
+                        </ul>
+                    </div>
                     <ul class="paquete_lista-items">
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
@@ -77,8 +104,17 @@
                     </ul>
                 </div>
                 <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v"></i>
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu4" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 4</h3>
+                    <div class="paquete__menu paquete__menu4">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item">Editar nombre paquete</li>
+                            <li class="paquete__menu-item">Eliminar paquete</li>
+                            <li class="paquete__menu-item">Agregar elementos</li>
+                            <li class="paquete__menu-item">Editar elementos</li>
+                            <li class="paquete__menu-item">Eliminar elementos</li>
+                        </ul>
+                    </div>
                     <ul class="paquete_lista-items">
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
@@ -91,8 +127,17 @@
                     </ul>
                 </div>
                 <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v"></i>
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu5" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 5</h3>
+                    <div class="paquete__menu paquete__menu5">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item">Editar nombre paquete</li>
+                            <li class="paquete__menu-item">Eliminar paquete</li>
+                            <li class="paquete__menu-item">Agregar elementos</li>
+                            <li class="paquete__menu-item">Editar elementos</li>
+                            <li class="paquete__menu-item">Eliminar elementos</li>
+                        </ul>
+                    </div>
                     <ul class="paquete_lista-items">
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
@@ -171,6 +216,18 @@
                     </div>
                 </div>
             </div>  
+        </div>
+    </div>
+    <div class="option-panel">
+        <img src="assets/img/close.svg" alt="" class="option-panel__close">
+        <div class="editar-nombre-form" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+            <h2 class="option-panel__title">Editar paquete numero1</h2>
+            <label for="nombre-paquete" class="option-panel__label">Nombre del paquete:</label>
+            <input type="text" class="optin-panel__input" id="nombre-paquete">
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Enviar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </div>

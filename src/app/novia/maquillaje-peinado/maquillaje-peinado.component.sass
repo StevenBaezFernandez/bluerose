@@ -1,4 +1,5 @@
 $OpenSands: 'Open Sans'
+$color-btn-enviar: #2E9AFE
 .header-component
     display: flex
     justify-content: space-between
@@ -77,14 +78,14 @@ $OpenSands: 'Open Sans'
     cursor: pointer
 .paquetes
     display: grid
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr
     grid-gap: 20px
     padding: 30px 10px
     display: none
 .paquetes-hide
     display: none
 .paquetes-show
-    display: block
+    display: grid   
 .paquete
     background: #fff
     padding: 20px
@@ -107,6 +108,33 @@ $OpenSands: 'Open Sans'
     top: 20px
     right: 20px
     color: #444 
+    cursor: pointer
+.paquete__menu
+    position: absolute
+    top: 45px
+    right: 20px
+    background: #fff
+    padding: 10px
+    box-shadow: 0 1px 5px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.24)
+    border-radius: 3px
+    opacity: 0
+    visibility: hidden
+.paquete__menu-active
+    animation: show-menu-paquete .16s ease-out 0s forwards
+@keyframes show-menu-paquete
+    0%
+        transform: translateY(50px)
+        opacity: 0
+        visibility: hidden
+    100%
+        transform: translateY(0px)
+        opacity: 1
+        visibility: visible
+        
+.paquete__menu-item-list
+    list-style: none
+.paquete__menu-item
+    padding: 10px
     cursor: pointer
 .proveedores-hide
     display: none
@@ -142,3 +170,58 @@ $OpenSands: 'Open Sans'
 .proveedor__value-correo,
 .proveedor__value-telefono
     color: #5f5f5f
+
+
+.option-panel
+    width: 400px
+    position: fixed
+    top: 0px
+    right: 0px
+    bottom: 0px
+    background: #fefefe
+    box-shadow: 1px 3px 5px rgba(0,0,0,.4)
+    padding: 20px
+.editar-nombre-form
+    display: none
+.editar-nombre-form-active
+    display: block  
+
+.option-panel__close
+    width: 30px
+    position: absolute
+    right: 20px
+    top: 20px
+    cursor: pointer
+
+.option-panel__btn-enviar
+    position: absolute
+    bottom: 20px
+    right: 20px
+    border: none
+    font-size: 16px
+    padding: 10px 30px
+    box-shadow: 1px 2px 3px rgba(0,0,0,.3)
+    cursor: pointer
+    background: $color-btn-enviar
+    border-radius: 2px
+    color: #fff
+.option-panel__btn-enviar-text
+    margin-right: 5px
+
+.option-panel__title
+    margin-top: 70px
+    font-family: 'Open Sans', sans-serif
+    font-weight: normal
+    font-size: 2em
+    color: #333
+.option-panel__label
+    display: block
+    color: #000
+.optin-panel__input
+    display: block
+    width: 100%
+    margin-top: 5px
+    padding: 15px 
+    border: 2px solid #555
+    border-radius: 3px
+    font-size: 20px  

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaquillajePeinadoComponent implements OnInit {
 
+  options_forms:any = {
+    editar_nombre: true
+  }
+  toggle_form(){
+  }
   tabs:any = {
-    galeria: true,
-    paquetes: false,
+    galeria: false,
+    paquetes: true,
     proveedores: false
   }
 
@@ -17,6 +22,13 @@ export class MaquillajePeinadoComponent implements OnInit {
     this.tabs.galeria = false;
     this.tabs.paquetes = false;
     this.tabs.proveedores = false;
+  }
+  toggle_menu(event:any){
+    console.log(event.target.dataset.menu);
+    let menu = document.querySelector(`.${ event.target.dataset.menu }`);
+    menu.classList.toggle(`paquete__menu-active`);
+    
+
   }
 
 
