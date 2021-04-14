@@ -11,22 +11,24 @@ export class MaquillajePeinadoComponent implements OnInit {
     editar_nombre: true
   }
   show_option_panel = false;
+  tabs:any = {
+    galeria: false,
+    paquetes: true,
+    proveedores: false
+  }
   toggle_option_panel(event:any){
-    this.show_option_panel = !this.show_option_panel;
+    if(event.target.dataset.option == 'agregar-elementos' || event.target.dataset.option == 'editar-elementos'){
+      this.show_option_panel = true;
+    }else{
+      this.show_option_panel = !this.show_option_panel;
+    }
     const forms = document.querySelectorAll(".option-panel__form");
     forms.forEach((form)=>{
       form.classList.remove('option-panel__form-active');
     });
     document.getElementById(event.target.dataset.option).classList.add('option-panel__form-active');
   }
-  toggle_form(){
-  }
-  tabs:any = {
-    galeria: false,
-    paquetes: true,
-    proveedores: false
-  }
-
+  
   toggle_tabs(){
     this.tabs.galeria = false;
     this.tabs.paquetes = false;

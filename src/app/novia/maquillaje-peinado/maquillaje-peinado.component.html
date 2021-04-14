@@ -233,8 +233,8 @@
             <h2 class="option-panel__title">Elementos del paquete numero1</h2>
             <div class="option-panel__wraper-btns">
                 <button class="option-panel__btn-options">Eliminar</button>
-                <button class="option-panel__btn-options">Editar</button>
-                <button class="option-panel__btn-options" data-option="editar-elementos" (click)="toggle_option_panel($event)">Agregar</button>
+                <button class="option-panel__btn-options" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar</button>
+                <button class="option-panel__btn-options" data-option="agregar-elementos" (click)="toggle_option_panel($event)">Agregar</button>
             </div>
 
             <div class="option-panel__wraper-element">
@@ -275,11 +275,30 @@
             </button>
         </div>
 
-        <div class="option-panel__form"  id="eliminar-paq" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+        <div class="option-panel__form"  id="agregar-elementos" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
             <h2 class="option-panel__title">Agregar elementos al paquete numero1</h2>
             <form>
                 <label for="elemento_paq">Agrega nuevo elemento aqui:</label>
                 <input type="text" id="elemento_paq">
+            </form>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="option-panel__form"  id="editar-elementos" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+            <h2 class="option-panel__title">Editar elementos del paquete numero1</h2>
+            <form>
+                <label for="elemento_paq">Nombre elemento1</label>
+                <input type="text" id="elemento_paq">
+                <label for="elemento_paq">Nombre elemento1</label>
+                <input type="text" id="elemento_paq">
+                <label for="elemento_paq">Nombre elemento1</label>
+                <input type="text" id="elemento_paq">
+                <label for="elemento_paq">Nombre elemento1</label>
+                <input type="text" id="elemento_paq">
+
             </form>
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
