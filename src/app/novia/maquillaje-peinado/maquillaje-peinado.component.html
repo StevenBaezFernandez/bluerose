@@ -39,9 +39,9 @@
                     <h3 class="paquete__title">Paquete numero 1</h3>
                     <div class="paquete__menu paquete__menu1">
                         <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar elementos</li>
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
@@ -60,9 +60,9 @@
                     <h3 class="paquete__title">Paquete numero 2</h3>
                     <div class="paquete__menu paquete__menu2">
                         <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar elementos</li>
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
@@ -81,9 +81,9 @@
                     <h3 class="paquete__title">Paquete numero 3</h3>
                     <div class="paquete__menu paquete__menu3">
                         <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar elementos</li>
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
@@ -102,9 +102,9 @@
                     <h3 class="paquete__title">Paquete numero 4</h3>
                     <div class="paquete__menu paquete__menu4">
                         <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar elementos</li>
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
@@ -123,9 +123,9 @@
                     <h3 class="paquete__title">Paquete numero 5</h3>
                     <div class="paquete__menu paquete__menu5">
                         <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar elementos</li>
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
@@ -142,7 +142,7 @@
             </div>
             <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
                 <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-v"></i>
+                    <i class="proveedor__three-dots fas fa-ellipsis-h"></i>
                     <i class="proveedor_photo fas fa-user-circle"></i>
                     <div class="proveedor__name">
                         <h3 class="proveedor__placeholder-name">Nombre</h3>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
                 <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-v"></i>
+                    <i class="proveedor__three-dots fas fa-ellipsis-h"></i>
                     <i class="proveedor_photo fas fa-user-circle"></i>
                     <div class="proveedor__name">
                         <h3 class="proveedor__placeholder-name">Nombre</h3>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-v"></i>
+                    <i class="proveedor__three-dots fas fa-ellipsis-h"></i>
                     <i class="proveedor_photo fas fa-user-circle"></i>
                     <div class="proveedor__name">
                         <h3 class="proveedor__placeholder-name">Nombre</h3>
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-v"></i>
+                    <i class="proveedor__three-dots fas fa-ellipsis-h"></i>
                     <i class="proveedor_photo fas fa-user-circle"></i>
                     <div class="proveedor__name">
                         <h3 class="proveedor__placeholder-name">Nombre</h3>
@@ -208,19 +208,20 @@
             </div>  
         </div>
     </div>
+    <!-- Editar nombre paq -->
     <div class="option-panel" [ngClass]="{'option-panel-active': show_option_panel}">
-        <img src="assets/img/close.svg" alt="" class="option-panel__close" (click)="toggle_option_panel($event)">
-        <div class="option-panel__form " id="editar-nombre-paq" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+        <img src="assets/img/close.svg" alt="" class="option-panel__close" (click)="toggle_option_panel()">
+        <div class="option-panel__form " id="editar-nombre-paq">
             <h2 class="option-panel__title">Editar paquete numero1</h2>
             <label for="nombre-paquete" class="option-panel__label">Nuevo nombre del paquete:</label>
-            <input type="text" class="optin-panel__input" id="nombre-paquete">
+            <input type="text" class="option-panel__input" id="nombre-paquete">
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Enviar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-
-        <div class="option-panel__form" id="eliminar-paq" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+        <!-- Eliminar paq -->
+        <div class="option-panel__form" id="eliminar-paq">
             <h2 class="option-panel__title">Eliminar paquete numero1</h2>
             <h3 class="option-panel__warning-delete">¿Esta seguro que desea eliminar el paquete <span class="option-panel__red">Paquete1</span>?</h3>
             <button class="option-panel__btn-enviar">
@@ -228,13 +229,13 @@
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-
-        <div class="option-panel__form" id="editar-elementos" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+        <!-- Editar elementos de paq -->
+        <div class="option-panel__form" id="option-elementos">
             <h2 class="option-panel__title">Elementos del paquete numero1</h2>
             <div class="option-panel__wraper-btns">
-                <button class="option-panel__btn-options">Eliminar</button>
-                <button class="option-panel__btn-options" data-option="editar-elementos" (click)="toggle_option_panel($event)">Editar</button>
-                <button class="option-panel__btn-options" data-option="agregar-elementos" (click)="toggle_option_panel($event)">Agregar</button>
+                <button class="option-panel__btn-options" data-option="eliminar-elementos" (click)="toggle_forms($event)">Eliminar</button>
+                <button class="option-panel__btn-options" data-option="editar-elementos" (click)="toggle_forms($event)">Editar</button>
+                <button class="option-panel__btn-options" data-option="agregar-elementos" (click)="toggle_forms($event)">Agregar</button>
             </div>
 
             <div class="option-panel__wraper-element">
@@ -269,37 +270,47 @@
                 <input class="option-panel__checkbox-element" type="checkbox" name="8" id="8">
                 <label for="8" class="paquete__item">Lorem ipsum dolor sit amet.</label>
             </div>
-            <button class="option-panel__btn-enviar">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
         </div>
-
-        <div class="option-panel__form"  id="agregar-elementos" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+        <!-- agregar elementos a paq -->
+        <div class="option-panel__form"  id="agregar-elementos">
             <h2 class="option-panel__title">Agregar elementos al paquete numero1</h2>
             <form>
                 <label for="elemento_paq">Agrega nuevo elemento aqui:</label>
-                <input type="text" id="elemento_paq">
+                <input type="text" class="option-panel__input_elemento_paq" id="input_elemento_paq">
             </form>
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-
-        <div class="option-panel__form"  id="editar-elementos" [ngClass]="{'editar-nombre-form-active': options_forms.editar_nombre}">
+        <!-- Editar elemento paq -->
+        <div class="option-panel__form"  id="editar-elementos">
             <h2 class="option-panel__title">Editar elementos del paquete numero1</h2>
-            <form>
-                <label for="elemento_paq">Nombre elemento1</label>
-                <input type="text" id="elemento_paq">
-                <label for="elemento_paq">Nombre elemento1</label>
-                <input type="text" id="elemento_paq">
-                <label for="elemento_paq">Nombre elemento1</label>
-                <input type="text" id="elemento_paq">
-                <label for="elemento_paq">Nombre elemento1</label>
-                <input type="text" id="elemento_paq">
+            <form class="option-panel__form-editar-items">
+                <label for="elemento_paq1">Nuevo nombre item1</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq1">
+                <label for="elemento_paq2">Nuevo nombre item2</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq2">
+                <label for="elemento_paq3">Nuevo nombre item3</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq3">
+                <label for="elemento_paq4">Nuevo nombre item4</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq4">
 
             </form>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <div class="option-panel__form"  id="eliminar-elementos">
+            <h2 class="option-panel__title">Esta seguro que desea eliminar del paquete1:</h2>
+            <ul class="option-panel__delete-item-list">
+                <li class="option-panel__delete-item">lorem1</li>
+                <li class="option-panel__delete-item">lorem2</li>
+                <li class="option-panel__delete-item">lorem3</li>
+                <li class="option-panel__delete-item">lorem4</li>
+                <li class="option-panel__delete-item">lorem5</li>
+            </ul>
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>

@@ -16,17 +16,16 @@ export class MaquillajePeinadoComponent implements OnInit {
     paquetes: true,
     proveedores: false
   }
-  toggle_option_panel(event:any){
-    if(event.target.dataset.option == 'agregar-elementos' || event.target.dataset.option == 'editar-elementos'){
-      this.show_option_panel = true;
-    }else{
-      this.show_option_panel = !this.show_option_panel;
-    }
+
+  toggle_option_panel(){
+    this.show_option_panel = !this.show_option_panel;   
+  }
+  toggle_forms(event:any){
     const forms = document.querySelectorAll(".option-panel__form");
     forms.forEach((form)=>{
       form.classList.remove('option-panel__form-active');
     });
-    document.getElementById(event.target.dataset.option).classList.add('option-panel__form-active');
+    document.getElementById(`${event.target.dataset.option}`).classList.add('option-panel__form-active');
   }
   
   toggle_tabs(){

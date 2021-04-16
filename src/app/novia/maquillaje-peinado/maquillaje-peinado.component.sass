@@ -42,6 +42,7 @@ $color-btn-enviar: #2E9AFE
     cursor: pointer 
     list-style: none
     text-transform: uppercase
+    user-select: none
 .tabs-menu__item-active
     font-weight: 500
     color: #000
@@ -78,9 +79,9 @@ $color-btn-enviar: #2E9AFE
     cursor: pointer
 .paquetes
     display: grid
-    grid-template-columns: 1fr 1fr
-    grid-gap: 20px
-    padding: 30px 10px
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: 10px
+    padding: 30px 0px
     display: none
 .paquetes-hide
     display: none
@@ -103,6 +104,7 @@ $color-btn-enviar: #2E9AFE
 .paquete__item
     padding: 5px
     text-transform: uppercase   
+    font-size: .9em
 .paquete__three-dots
     position: absolute
     top: 20px
@@ -135,6 +137,7 @@ $color-btn-enviar: #2E9AFE
     list-style: none
 .paquete__menu-item
     padding: 10px
+    user-select: none
     cursor: pointer
 .proveedores-hide
     display: none
@@ -157,8 +160,9 @@ $color-btn-enviar: #2E9AFE
     color: #555
 .proveedor__three-dots
     position: absolute
-    top: calc(50% - 8px) 
+    top: 20px
     right: -10px
+    cursor: pointer
     color: #777
 .proveedor__placeholder-name,
 .proveedor__placeholder-correo,
@@ -223,7 +227,7 @@ $color-btn-enviar: #2E9AFE
     margin-right: 5px
 
 .option-panel__title
-    margin-top: 70px
+    margin-top: 50px
     font-family: 'Open Sans', sans-serif
     font-weight: normal
     font-size: 2em
@@ -231,14 +235,20 @@ $color-btn-enviar: #2E9AFE
 .option-panel__label
     display: block
     color: #000
-.optin-panel__input
+.option-panel__input,
+.option-panel__input_elemento_paq,
+.option-panel__input-iditar-items
     display: block
     width: 100%
     margin-top: 5px
     padding: 15px 
-    border: 2px solid #555
-    border-radius: 3px
+    border: 2px solid #ccc
+    border-radius: 2px
     font-size: 20px  
+    transition: all .1s ease-out
+    &:focus
+        border-color:#555
+        
 .option-panel__warning-delete
     font-weight: normal
 .option-panel__red
@@ -252,3 +262,6 @@ $color-btn-enviar: #2E9AFE
     cursor: pointer
 .option-panel__wraper-btns
     margin-bottom: 20px
+
+.option-panel__delete-item
+    margin: 0px 20px
