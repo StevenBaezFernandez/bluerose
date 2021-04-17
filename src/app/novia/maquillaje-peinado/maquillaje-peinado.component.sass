@@ -111,7 +111,8 @@ $color-btn-enviar: #2E9AFE
     right: 20px
     color: #444 
     cursor: pointer
-.paquete__menu
+.paquete__menu,
+.proveedor__menu
     position: absolute
     top: 45px
     right: 20px
@@ -121,7 +122,13 @@ $color-btn-enviar: #2E9AFE
     border-radius: 3px
     opacity: 0
     visibility: hidden
-.paquete__menu-active
+    z-index: 100
+.proveedor__menu
+    top: 35px
+    right: -2px
+    padding: 2px 5px
+.paquete__menu-active,
+.proveedor__menu-active
     animation: show-menu-paquete .16s ease-out 0s forwards
 @keyframes show-menu-paquete
     0%
@@ -133,9 +140,11 @@ $color-btn-enviar: #2E9AFE
         opacity: 1
         visibility: visible
         
-.paquete__menu-item-list
+.paquete__menu-item-list,
+.proveedor__menu-item-list
     list-style: none
-.paquete__menu-item
+.paquete__menu-item,
+.proveedor__menu-item
     padding: 10px
     user-select: none
     cursor: pointer
@@ -237,7 +246,8 @@ $color-btn-enviar: #2E9AFE
     color: #000
 .option-panel__input,
 .option-panel__input_elemento_paq,
-.option-panel__input-iditar-items
+.option-panel__input-iditar-items,
+.option-panel__input-edit-prov
     display: block
     width: 100%
     margin-top: 5px
