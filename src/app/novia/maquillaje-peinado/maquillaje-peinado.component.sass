@@ -70,12 +70,23 @@ $color-btn-enviar: #2E9AFE
     grid-template-columns: 1fr 1fr 1fr
     grid-gap: 40px
 .galeria__grid-img-container
-    height: 240px
     border-radius: 3px
     box-shadow: 2px 4px 6px rgba(0,0,0,.2 )
     overflow: hidden
+    height: auto
+    position: relative
 .galeria__grid-img
     width: 100%
+    vertical-align: top
+    object-fit: cover
+    height: 240px
+    cursor: pointer
+.galeria__three-dots
+    color: #eee
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, .2)
+    position: absolute
+    top: 10px
+    right: 10px
     cursor: pointer
 .paquetes
     display: grid
@@ -111,6 +122,7 @@ $color-btn-enviar: #2E9AFE
     right: 20px
     color: #444 
     cursor: pointer
+.galeria__menu,
 .paquete__menu,
 .proveedor__menu
     position: absolute
@@ -123,10 +135,14 @@ $color-btn-enviar: #2E9AFE
     opacity: 0
     visibility: hidden
     z-index: 100
+.galeria__menu
+    top: 26px
+    padding: 0px
 .proveedor__menu
     top: 35px
     right: -2px
     padding: 2px 5px
+.galeria__menu-active,
 .paquete__menu-active,
 .proveedor__menu-active
     animation: show-menu-paquete .16s ease-out 0s forwards
@@ -139,10 +155,11 @@ $color-btn-enviar: #2E9AFE
         transform: translateY(0px)
         opacity: 1
         visibility: visible
-        
+.galeria__menu-item-list,     
 .paquete__menu-item-list,
 .proveedor__menu-item-list
     list-style: none
+.galeria__menu-item,
 .paquete__menu-item,
 .proveedor__menu-item
     padding: 10px

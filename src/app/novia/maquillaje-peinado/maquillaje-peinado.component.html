@@ -20,17 +20,89 @@
         <div class="content-component__body">
             <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}">
                 <div class="galeria__grid-imgs">
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje1.jpg" class="galeria__grid-img" alt=""></div>
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje2.jpg" class="galeria__grid-img" alt=""></div>
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje3.jpg" class="galeria__grid-img" alt=""></div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu1" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu1">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje1.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu2" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu2">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje2.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu3" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu3">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje3.jpg" class="galeria__grid-img" alt="">
+                    </div>
 
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje4.jpg" class="galeria__grid-img" alt=""></div>
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje5.jpg" class="galeria__grid-img" alt=""></div>
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje6.jpg" class="galeria__grid-img" alt=""></div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu4" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu4">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje4.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu5" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu5">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje5.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu6" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu6">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje6.jpg" class="galeria__grid-img" alt="">
+                    </div>
 
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje7.jpg" class="galeria__grid-img" alt=""></div>
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje8.jpg" class="galeria__grid-img" alt=""></div>
-                    <div class="galeria__grid-img-container"><img src="assets/img/maquillaje9.jpg" class="galeria__grid-img" alt=""></div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu7" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu7">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje7.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu8" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu8">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje8.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu9" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu9">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje9.jpg" class="galeria__grid-img" alt="">
+                    </div>
                 </div>
             </div>
             <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
@@ -361,6 +433,14 @@
         <!-- Eliminar proveedor -->
         <div class="option-panel__form" id="eliminar-proveedor">
             <h2 class="option-panel__title">¿Está seguro que desea eliminar este proveedor?</h2>
+
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <div class="option-panel__form" id="eliminar-imagen">
+            <h2 class="option-panel__title">¿Está seguro que desea eliminar esta imagen?</h2>
 
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
