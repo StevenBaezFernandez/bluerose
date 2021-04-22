@@ -1,3 +1,457 @@
 <div class="wraper-component">
-    <p>main works!</p>
+    <div class="header-component">
+        <div class="header-component__text-info">
+            <h1 class="header-component__text-info-cat1">Novia</h1>
+            <div class="separator-line"></div>
+            <h2 class="header-component__text-info-cat2">Maquillaje y peinados</h2>
+        </div>
+        <div class="header-component__photo-profile">
+            <img src="assets/img/profile.svg" class="header-component__photo-profile-img" alt="">
+        </div>
+    </div>
+    <div class="content-component">
+        <div class="content-component__header">
+            <nav class="tabs-menu">
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.galeria}" (click)="toggle_tabs(); tabs.galeria = true;">Galería</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.paquetes}" (click)="toggle_tabs(); tabs.paquetes = true">Paquetes</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.proveedores}" (click)="toggle_tabs(); tabs.proveedores = true">Proveedores</li>
+            </nav>
+        </div>            
+        <div class="content-component__body">
+            <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}">
+                <div class="galeria__grid-imgs">
+
+                    <div class="galeria__grid-img-container" *ngFor="let img of data_api; index as i">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" [attr.data-img-url]="img.url_img" [attr.data-img-id]="img.id_img" [attr.data-menu]="'galeria__menu' + (i+1)" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu {{'galeria__menu'+ (i+1)}}">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="{{img.url_img}}" data-img_id="{{img.id_img}}" class="galeria__grid-img" alt="">
+                    </div>
+                    <!-- <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu2" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu2">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje2.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu3" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu3">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje3.jpg" class="galeria__grid-img" alt="">
+                    </div>
+
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu4" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu4">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje4.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu5" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu5">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje5.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu6" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu6">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje6.jpg" class="galeria__grid-img" alt="">
+                    </div>
+
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu7" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu7">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje7.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu8" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu8">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje8.jpg" class="galeria__grid-img" alt="">
+                    </div>
+                    <div class="galeria__grid-img-container">
+                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu9" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
+                        <div class="galeria__menu galeria__menu9">
+                            <ul class="galeria__menu-item-list">
+                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
+                            </ul>
+                        </div>
+                        <img src="assets/img/maquillaje9.jpg" class="galeria__grid-img" alt="">
+                    </div> -->
+                </div>
+            </div>
+            <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
+                <div class="paquete">
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <h3 class="paquete__title">Paquete numero 1</h3>
+                    <div class="paquete__menu paquete__menu1">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
+                        </ul>
+                    </div>
+                    <ul class="paquete_lista-items">
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+                <div class="paquete">
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu2" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <h3 class="paquete__title">Paquete numero 2</h3>
+                    <div class="paquete__menu paquete__menu2">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
+                        </ul>
+                    </div>
+                    <ul class="paquete_lista-items">
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+                <div class="paquete">
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu3" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <h3 class="paquete__title">Paquete numero 3</h3>
+                    <div class="paquete__menu paquete__menu3">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
+                        </ul>
+                    </div>
+                    <ul class="paquete_lista-items">
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+                <div class="paquete">
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu4" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <h3 class="paquete__title">Paquete numero 4</h3>
+                    <div class="paquete__menu paquete__menu4">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
+                        </ul>
+                    </div>
+                    <ul class="paquete_lista-items">
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+                <div class="paquete">
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu5" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <h3 class="paquete__title">Paquete numero 5</h3>
+                    <div class="paquete__menu paquete__menu5">
+                        <ul class="paquete__menu-item-list">
+                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
+                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
+                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
+                        </ul>
+                    </div>
+                    <ul class="paquete_lista-items">
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
+                <div class="proveedor">
+                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <div class="proveedor__menu proveedor__menu1">
+                        <ul class="proveedor__menu-item-list">
+                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
+                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
+                        </ul>
+                    </div>
+                    <i class="proveedor_photo fas fa-user-circle"></i>
+                    <div class="proveedor__name">
+                        <h3 class="proveedor__placeholder-name">Nombre</h3>
+                        <p class="proveedor__value-name">Jane cooper</p>
+                    </div>
+                    <div class="proveedor__correo">
+                        <h3 class="proveedor__placeholder-correo">Correo</h3>
+                        <p class="proveedor__value-correo">correo@correo.com</p>
+                    </div>
+                    <div class="proveedor__telefono">
+                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
+                        <p class="proveedor__value-telefono">829-456-6490</p>
+                    </div>
+                </div>
+                <div class="proveedor">
+                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu2" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <div class="proveedor__menu proveedor__menu2">
+                        <ul class="proveedor__menu-item-list">
+                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
+                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
+                        </ul>
+                    </div>
+                    <i class="proveedor_photo fas fa-user-circle"></i>
+                    <div class="proveedor__name">
+                        <h3 class="proveedor__placeholder-name">Nombre</h3>
+                        <p class="proveedor__value-name">Jane cooper</p>
+                    </div>
+                    <div class="proveedor__correo">
+                        <h3 class="proveedor__placeholder-correo">Correo</h3>
+                        <p class="proveedor__value-correo">correo@correo.com</p>
+                    </div>
+                    <div class="proveedor__telefono">
+                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
+                        <p class="proveedor__value-telefono">829-456-6490</p>
+                    </div>
+                </div>
+                <div class="proveedor">
+                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu3" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <div class="proveedor__menu proveedor__menu3">
+                        <ul class="proveedor__menu-item-list">
+                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
+                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
+                        </ul>
+                    </div>
+                    <i class="proveedor_photo fas fa-user-circle"></i>
+                    <div class="proveedor__name">
+                        <h3 class="proveedor__placeholder-name">Nombre</h3>
+                        <p class="proveedor__value-name">Jane cooper</p>
+                    </div>
+                    <div class="proveedor__correo">
+                        <h3 class="proveedor__placeholder-correo">Correo</h3>
+                        <p class="proveedor__value-correo">correo@correo.com</p>
+                    </div>
+                    <div class="proveedor__telefono">
+                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
+                        <p class="proveedor__value-telefono">829-456-6490</p>
+                    </div>
+                </div>
+                <div class="proveedor">
+                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu4" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <div class="proveedor__menu proveedor__menu4">
+                        <ul class="proveedor__menu-item-list">
+                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
+                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
+                        </ul>
+                    </div>
+                    <i class="proveedor_photo fas fa-user-circle"></i>
+                    <div class="proveedor__name">
+                        <h3 class="proveedor__placeholder-name">Nombre</h3>
+                        <p class="proveedor__value-name">Jane cooper</p>
+                    </div>
+                    <div class="proveedor__correo">
+                        <h3 class="proveedor__placeholder-correo">Correo</h3>
+                        <p class="proveedor__value-correo">correo@correo.com</p>
+                    </div>
+                    <div class="proveedor__telefono">
+                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
+                        <p class="proveedor__value-telefono">829-456-6490</p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <!-- Editar nombre paq -->
+    <div class="option-panel" [ngClass]="{'option-panel-active': show_option_panel}">
+        <img src="assets/img/close.svg" alt="" class="option-panel__close" (click)="toggle_option_panel()">
+        <div class="option-panel__form " id="editar-nombre-paq">
+            <h2 class="option-panel__title">Editar paquete numero1</h2>
+            <label for="nombre-paquete" class="option-panel__label">Nuevo nombre del paquete:</label>
+            <input type="text" class="option-panel__input" id="nombre-paquete">
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Enviar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Eliminar paq -->
+        <div class="option-panel__form" id="eliminar-paq">
+            <h2 class="option-panel__title">Eliminar paquete numero1</h2>
+            <h3 class="option-panel__warning-delete">¿Esta seguro que desea eliminar el paquete <span class="option-panel__red">Paquete1</span>?</h3>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Editar elementos de paq -->
+        <div class="option-panel__form" id="option-elementos">
+            <h2 class="option-panel__title">Elementos del paquete numero1</h2>
+            <div class="option-panel__wraper-btns">
+                <button class="option-panel__btn-options" data-option="eliminar-elementos" (click)="toggle_forms($event)">Eliminar</button>
+                <button class="option-panel__btn-options" data-option="editar-elementos" (click)="toggle_forms($event)">Editar</button>
+                <button class="option-panel__btn-options" data-option="agregar-elementos" (click)="toggle_forms($event)">Agregar</button>
+            </div>
+
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="1" id="1">
+                <label for="1" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="2" id="2">
+                <label for="2" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="3" id="3">
+                <label for="3" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="4" id="4">
+                <label for="4" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="5" id="5">
+                <label for="5" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="6" id="6">
+                <label for="6" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="7" id="7">
+                <label for="7" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+            <div class="option-panel__wraper-element">
+                <input class="option-panel__checkbox-element" type="checkbox" name="8" id="8">
+                <label for="8" class="paquete__item">Lorem ipsum dolor sit amet.</label>
+            </div>
+        </div>
+        <!-- agregar elementos a paq -->
+        <div class="option-panel__form"  id="agregar-elementos">
+            <h2 class="option-panel__title">Agregar elementos al paquete numero1</h2>
+            <form>
+                <label for="elemento_paq">Agrega nuevo elemento aqui:</label>
+                <input type="text" class="option-panel__input_elemento_paq" id="input_elemento_paq">
+            </form>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Editar elemento paq -->
+        <div class="option-panel__form"  id="editar-elementos">
+            <h2 class="option-panel__title">Editar elementos del paquete numero1</h2>
+            <form class="option-panel__form-editar-items">
+                <label for="elemento_paq1">Nuevo nombre item1</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq1">
+                <label for="elemento_paq2">Nuevo nombre item2</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq2">
+                <label for="elemento_paq3">Nuevo nombre item3</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq3">
+                <label for="elemento_paq4">Nuevo nombre item4</label>
+                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq4">
+
+            </form>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Eliminar elementos de paquetes -->
+        <div class="option-panel__form"  id="eliminar-elementos">
+            <h2 class="option-panel__title">Esta seguro que desea eliminar del paquete1:</h2>
+            <ul class="option-panel__delete-item-list">
+                <li class="option-panel__delete-item">lorem1</li>
+                <li class="option-panel__delete-item">lorem2</li>
+                <li class="option-panel__delete-item">lorem3</li>
+                <li class="option-panel__delete-item">lorem4</li>
+                <li class="option-panel__delete-item">lorem5</li>
+            </ul>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Editar proveedor -->
+        <div class="option-panel__form" id="editar-proveedor">
+            <h2 class="option-panel__title">Editar proveedor</h2>
+            <form>
+                <label for="">Nombre:</label>
+                <input type="text" class="option-panel__input-edit-prov" value="Jane cooper">
+                <label for="">Correo:</label>
+                <input type="text" class="option-panel__input-edit-prov" value="correo@correo.com">
+                <label for="">Telefono:</label>
+                <input type="text" class="option-panel__input-edit-prov" value="809-345-3453">
+
+            </form>
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Eliminar proveedor -->
+        <div class="option-panel__form" id="eliminar-proveedor">
+            <h2 class="option-panel__title">¿Está seguro que desea eliminar este proveedor?</h2>
+
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Eliminar imagen -->
+        <div class="option-panel__form" id="eliminar-imagen">
+            <h2 class="option-panel__title">¿Está seguro que desea eliminar esta imagen?</h2>
+            <h3 class="option-panel__id-info"><span class="option-panel__id-info-t">Id:</span>{{ id_img_delete }}</h3>
+            <img src="{{ url_img_delete }}" class="option-panel__img-form" alt="">
+            <button class="option-panel__btn-enviar">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+
+
+    </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-main',
@@ -7,15 +8,67 @@ import { ActivatedRoute, Params } from '@angular/router'
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent implements OnInit {
+
+  data_api:any;
+
+  id_img_delete:string;
+  url_img_delete:string;
+
+  options_forms:any = {
+    editar_nombre: true
+  }
+  show_option_panel = false;
+  tabs:any = {
+    galeria: false,
+    paquetes: true,
+    proveedores: false
+  }
+
+  toggle_option_panel(){
+    this.show_option_panel = !this.show_option_panel;   
+  }
+  toggle_forms(event:any){
+    const forms = document.querySelectorAll(".option-panel__form");
+    forms.forEach((form)=>{
+      form.classList.remove('option-panel__form-active');
+    });
+    document.getElementById(`${event.target.dataset.option}`).classList.add('option-panel__form-active');
+  }
   
-  constructor(private rutaActiva: ActivatedRoute) { }
+  toggle_tabs(){
+    this.tabs.galeria = false;
+    this.tabs.paquetes = false;
+    this.tabs.proveedores = false;
+  }
+  toggle_menu(event:any){
+    console.log(event.target.dataset);
+    this.id_img_delete = event.target.dataset.imgId;
+    this.url_img_delete = event.target.dataset.imgUrl;
+    let menu = document.querySelector(`.${ event.target.dataset.menu }`);
+    if(event.type == 'blur'){
+      setTimeout(()=>{
+        menu.classList.toggle(`paquete__menu-active`);
+      },200)
+    }else{
+      menu.classList.toggle(`paquete__menu-active`);
+    }
+    
+
+  }
+  
+  constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
   
   
   ngOnInit(): void {
     // capturando los datos de la ruta
     this.rutaActiva.params.subscribe((params: Params)=>{
       console.log(params);
-    })
+      const { cat1, cat2, cat3 } = params;
+      this._service.optener(cat1, cat2, cat3).subscribe(data=>{
+        this.data_api = data;
+      });
+    });
+
   }
 
 }
