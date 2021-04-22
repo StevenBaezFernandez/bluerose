@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
-                <div class="proveedor">
+                <div class="proveedor" *ngFor="let prov of data_api">
                     <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <div class="proveedor__menu proveedor__menu1">
                         <ul class="proveedor__menu-item-list">
@@ -225,81 +225,19 @@
                     <i class="proveedor_photo fas fa-user-circle"></i>
                     <div class="proveedor__name">
                         <h3 class="proveedor__placeholder-name">Nombre</h3>
-                        <p class="proveedor__value-name">Jane cooper</p>
+                        <p class="proveedor__value-name">{{prov.nombre_prov + " " + prov.apellido_prov}}</p>
                     </div>
                     <div class="proveedor__correo">
                         <h3 class="proveedor__placeholder-correo">Correo</h3>
-                        <p class="proveedor__value-correo">correo@correo.com</p>
+                        <p class="proveedor__value-correo">{{prov.correo_prov}}</p>
                     </div>
                     <div class="proveedor__telefono">
                         <h3 class="proveedor__placeholder-telefono">Telefono</h3>
-                        <p class="proveedor__value-telefono">829-456-6490</p>
+                        <p class="proveedor__value-telefono">{{prov.telefono_prov}}</p>
                     </div>
-                </div>
-                <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu2" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <div class="proveedor__menu proveedor__menu2">
-                        <ul class="proveedor__menu-item-list">
-                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
-                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
-                        </ul>
-                    </div>
-                    <i class="proveedor_photo fas fa-user-circle"></i>
-                    <div class="proveedor__name">
-                        <h3 class="proveedor__placeholder-name">Nombre</h3>
-                        <p class="proveedor__value-name">Jane cooper</p>
-                    </div>
-                    <div class="proveedor__correo">
-                        <h3 class="proveedor__placeholder-correo">Correo</h3>
-                        <p class="proveedor__value-correo">correo@correo.com</p>
-                    </div>
-                    <div class="proveedor__telefono">
-                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
-                        <p class="proveedor__value-telefono">829-456-6490</p>
-                    </div>
-                </div>
-                <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu3" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <div class="proveedor__menu proveedor__menu3">
-                        <ul class="proveedor__menu-item-list">
-                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
-                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
-                        </ul>
-                    </div>
-                    <i class="proveedor_photo fas fa-user-circle"></i>
-                    <div class="proveedor__name">
-                        <h3 class="proveedor__placeholder-name">Nombre</h3>
-                        <p class="proveedor__value-name">Jane cooper</p>
-                    </div>
-                    <div class="proveedor__correo">
-                        <h3 class="proveedor__placeholder-correo">Correo</h3>
-                        <p class="proveedor__value-correo">correo@correo.com</p>
-                    </div>
-                    <div class="proveedor__telefono">
-                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
-                        <p class="proveedor__value-telefono">829-456-6490</p>
-                    </div>
-                </div>
-                <div class="proveedor">
-                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu4" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <div class="proveedor__menu proveedor__menu4">
-                        <ul class="proveedor__menu-item-list">
-                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
-                            <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
-                        </ul>
-                    </div>
-                    <i class="proveedor_photo fas fa-user-circle"></i>
-                    <div class="proveedor__name">
-                        <h3 class="proveedor__placeholder-name">Nombre</h3>
-                        <p class="proveedor__value-name">Jane cooper</p>
-                    </div>
-                    <div class="proveedor__correo">
-                        <h3 class="proveedor__placeholder-correo">Correo</h3>
-                        <p class="proveedor__value-correo">correo@correo.com</p>
-                    </div>
-                    <div class="proveedor__telefono">
-                        <h3 class="proveedor__placeholder-telefono">Telefono</h3>
-                        <p class="proveedor__value-telefono">829-456-6490</p>
+                    <div class="proveedor__direccion">
+                        <h3 class="proveedor__placeholder-direccion">Direccion</h3>
+                        <p class="proveedor__value-direccion">{{prov.direccion_prov}}</p>
                     </div>
                 </div>
             </div>  
