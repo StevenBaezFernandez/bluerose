@@ -12,9 +12,9 @@
     <div class="content-component">
         <div class="content-component__header">
             <nav class="tabs-menu">
-                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.galeria}" (click)="toggle_tabs(); tabs.galeria = true;">Galería</li>
-                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.paquetes}" (click)="toggle_tabs(); tabs.paquetes = true">Paquetes</li>
-                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.proveedores}" (click)="toggle_tabs(); tabs.proveedores = true">Proveedores</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.galeria}" (click)="toggle_tabs(); tabs.galeria = true; get_data();">Galería</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.paquetes}" (click)="toggle_tabs(); tabs.paquetes = true; get_data();">Paquetes</li>
+                <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.proveedores}" (click)="toggle_tabs(); tabs.proveedores = true; get_data();">Proveedores</li>
             </nav>
         </div>            
         <div class="content-component__body">
@@ -106,7 +106,7 @@
                     </div> -->
                 </div>
             </div>
-            <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
+            <div class="paquetes" [ngClass]="{'galeria-show': tabs.paquetes, 'galeria-hide': !tabs.paquetes}">
                 <div class="paquete">
                     <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 1</h3>

@@ -10,6 +10,7 @@ import { ApiService } from '../services/api.service';
 export class MainComponent implements OnInit {
 
   data_api:any;
+  url:any;
 
   id_img_delete:string;
   url_img_delete:string;
@@ -20,9 +21,10 @@ export class MainComponent implements OnInit {
   show_option_panel = false;
   tabs:any = {
     galeria: false,
-    paquetes: true,
+    paquetes: false,
     proveedores: false
   }
+
 
   toggle_option_panel(){
     this.show_option_panel = !this.show_option_panel;   
@@ -57,16 +59,29 @@ export class MainComponent implements OnInit {
   }
   
   constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
+
+  get_data(){
+    let cat3 = '';
+      if(this.tabs.galeria == true){
+        cat3 = 'galeria';
+      }else if(this.tabs.paquetes == true){
+        cat3 = 'items-paquetes';
+      }else if(this.tabs.proveedores == true){
+        cat3 = 'proveedores';
+      }
+      const { cat1, cat2} = this.url;
+      this._service.get(cat1, cat2, cat3).subscribe(data=>{
+        this.data_api = data;
+        console.log(data);
+      });
+  }
   
   
   ngOnInit(): void {
     // capturando los datos de la ruta
     this.rutaActiva.params.subscribe((params: Params)=>{
-      console.log(params);
-      const { cat1, cat2, cat3 } = params;
-      this._service.optener(cat1, cat2, cat3).subscribe(data=>{
-        this.data_api = data;
-      });
+      this.url = params;  
+      this.get_data();    
     });
 
   }

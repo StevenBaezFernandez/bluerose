@@ -9,7 +9,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  optener(cat1:string, cat2:string, cat3:string = 'galeria'): Observable<any>{
-    return this.http.get(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}`);
+  get(cat1:string, cat2:string, cat3:string = 'galeria'): Observable<any>{    
+    return this.http.get(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}`);    
   }
+  // get2(cat1:string, cat2:string, cat3:string = 'galeria'){
+  //   return `http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}`;
+  // }
 }
