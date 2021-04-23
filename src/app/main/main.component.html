@@ -106,10 +106,10 @@
                     </div> -->
                 </div>
             </div>
-            <div class="paquetes" [ngClass]="{'galeria-show': tabs.paquetes, 'galeria-hide': !tabs.paquetes}">
-                <div class="paquete">
+            <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
+                <div class="paquete" *ngFor="let nombre_paq of data_api">
                     <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <h3 class="paquete__title">Paquete numero 1</h3>
+                    <h3 class="paquete__title">{{nombre_paq.nombre_paq}}</h3>
                     <div class="paquete__menu paquete__menu1">
                         <ul class="paquete__menu-item-list">
                             <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
@@ -118,17 +118,17 @@
                         </ul>
                     </div>
                     <ul class="paquete_lista-items">
+                        <li class="paquete__item" *ngFor="let item of data_api">{{item.item}}</li>
+                        <!-- <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
+                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li> -->
                     </ul>
                 </div>
-                <div class="paquete">
+                <!-- <div class="paquete">
                     <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu2" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">Paquete numero 2</h3>
                     <div class="paquete__menu paquete__menu2">
@@ -211,7 +211,7 @@
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                         <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
                 <div class="proveedor" *ngFor="let prov of data_api">

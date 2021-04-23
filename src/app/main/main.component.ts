@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
   show_option_panel = false;
   tabs:any = {
     galeria: false,
-    paquetes: false,
+    paquetes: true,
     proveedores: false
   }
 
