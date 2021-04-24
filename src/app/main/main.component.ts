@@ -24,7 +24,38 @@ export class MainComponent implements OnInit {
     paquetes: true,
     proveedores: false
   }
-
+  data_prueba = [
+    {
+      nombre_paq: 'paquete1',
+      items:[
+        "item1 de del paquete1",
+        "item2 de del paquete1",
+        "item3 de del paquete1",
+        "item4 de del paquete1",
+        "item5 de del paquete1",
+      ]
+    },
+    {
+      nombre_paq: 'paquete2',
+      items:[
+        "item1 de del paquete2",
+        "item2 de del paquete2",
+        "item3 de del paquete2",
+        "item4 de del paquete2",
+        "item5 de del paquete2",
+      ]
+    },
+    {
+      nombre_paq: 'paquete3',
+      items:[
+        "knfdkgdkfngkldsnfgksdf",
+        "klnfdskgmfdgfmfdgd",
+        "lkdmfgkdfgmldfgldsfg",
+        "mldfgdfgldkfglkdsfg",
+        "lfdglmfdgldfgñldf",
+      ]
+    }
+  ]
 
   toggle_option_panel(){
     this.show_option_panel = !this.show_option_panel;   
