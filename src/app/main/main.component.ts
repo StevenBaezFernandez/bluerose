@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
 
   data_api:any;
   url:any;
+  cat2:string;
 
   id_img_delete:string;
   url_img_delete:string;
@@ -24,38 +25,6 @@ export class MainComponent implements OnInit {
     paquetes: true,
     proveedores: false
   }
-  data_prueba = [
-    {
-      nombre_paq: 'paquete1',
-      items:[
-        "item1 de del paquete1",
-        "item2 de del paquete1",
-        "item3 de del paquete1",
-        "item4 de del paquete1",
-        "item5 de del paquete1",
-      ]
-    },
-    {
-      nombre_paq: 'paquete2',
-      items:[
-        "item1 de del paquete2",
-        "item2 de del paquete2",
-        "item3 de del paquete2",
-        "item4 de del paquete2",
-        "item5 de del paquete2",
-      ]
-    },
-    {
-      nombre_paq: 'paquete3',
-      items:[
-        "knfdkgdkfngkldsnfgksdf",
-        "klnfdskgmfdgfmfdgd",
-        "lkdmfgkdfgmldfgldsfg",
-        "mldfgdfgldkfglkdsfg",
-        "lfdglmfdgldfgñldf",
-      ]
-    }
-  ]
 
   toggle_option_panel(){
     this.show_option_panel = !this.show_option_panel;   
@@ -93,11 +62,11 @@ export class MainComponent implements OnInit {
 
   get_data(){
     let cat3 = '';
-      if(this.tabs.galeria == true){
+      if(this.tabs.galeria){
         cat3 = 'galeria';
-      }else if(this.tabs.paquetes == true){
+      }else if(this.tabs.paquetes){
         cat3 = 'items-paquetes';
-      }else if(this.tabs.proveedores == true){
+      }else if(this.tabs.proveedores){
         cat3 = 'proveedores';
       }
       const { cat1, cat2} = this.url;

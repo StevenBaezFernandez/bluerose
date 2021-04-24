@@ -1,9 +1,9 @@
 <div class="wraper-component">
     <div class="header-component">
         <div class="header-component__text-info">
-            <h1 class="header-component__text-info-cat1">Novia</h1>
+            <h1 class="header-component__text-info-cat1">{{url.cat1}}</h1>
             <div class="separator-line"></div>
-            <h2 class="header-component__text-info-cat2">Maquillaje y peinados</h2>
+            <h2 class="header-component__text-info-cat2">{{url.cat2}}</h2>
         </div>
         <div class="header-component__photo-profile">
             <img src="assets/img/profile.svg" class="header-component__photo-profile-img" alt="">
@@ -30,87 +30,13 @@
                         </div>
                         <img src="{{img.url_img}}" data-img_id="{{img.id_img}}" class="galeria__grid-img" alt="">
                     </div>
-                    <!-- <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu2" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu2">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje2.jpg" class="galeria__grid-img" alt="">
-                    </div>
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu3" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu3">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje3.jpg" class="galeria__grid-img" alt="">
-                    </div>
-
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu4" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu4">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje4.jpg" class="galeria__grid-img" alt="">
-                    </div>
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu5" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu5">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje5.jpg" class="galeria__grid-img" alt="">
-                    </div>
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu6" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu6">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje6.jpg" class="galeria__grid-img" alt="">
-                    </div>
-
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu7" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu7">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje7.jpg" class="galeria__grid-img" alt="">
-                    </div>
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu8" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu8">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje8.jpg" class="galeria__grid-img" alt="">
-                    </div>
-                    <div class="galeria__grid-img-container">
-                        <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="galeria__menu9" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
-                        <div class="galeria__menu galeria__menu9">
-                            <ul class="galeria__menu-item-list">
-                                <li class="galeria__menu-item" data-option="eliminar-imagen" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar imagen</li>
-                            </ul>
-                        </div>
-                        <img src="assets/img/maquillaje9.jpg" class="galeria__grid-img" alt="">
-                    </div> -->
                 </div>
             </div>
             <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
-                <div class="paquete" *ngFor="let nombre_paq of data_api">
-                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                <div class="paquete" *ngFor="let nombre_paq of data_api; index as i">
+                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" [attr.data-menu]="'paquete__menu' + (i+1)" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">{{nombre_paq.nombre_paq}}</h3>
-                    <div class="paquete__menu paquete__menu1">
+                    <div class="paquete__menu {{'paquete__menu'+ (i+1)}}">
                         <ul class="paquete__menu-item-list">
                             <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
                             <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
@@ -119,104 +45,14 @@
                     </div>
                     <ul class="paquete_lista-items">
                         <li class="paquete__item" *ngFor="let item of nombre_paq.items">{{item}}</li>
-                        <!-- <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li> -->
                     </ul>
                 </div>
-                <!-- <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu2" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <h3 class="paquete__title">Paquete numero 2</h3>
-                    <div class="paquete__menu paquete__menu2">
-                        <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
-                        </ul>
-                    </div>
-                    <ul class="paquete_lista-items">
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-                <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu3" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <h3 class="paquete__title">Paquete numero 3</h3>
-                    <div class="paquete__menu paquete__menu3">
-                        <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
-                        </ul>
-                    </div>
-                    <ul class="paquete_lista-items">
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-                <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu4" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <h3 class="paquete__title">Paquete numero 4</h3>
-                    <div class="paquete__menu paquete__menu4">
-                        <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
-                        </ul>
-                    </div>
-                    <ul class="paquete_lista-items">
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div>
-                <div class="paquete">
-                    <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" data-menu="paquete__menu5" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <h3 class="paquete__title">Paquete numero 5</h3>
-                    <div class="paquete__menu paquete__menu5">
-                        <ul class="paquete__menu-item-list">
-                            <li class="paquete__menu-item" data-option="editar-nombre-paq" (click)="toggle_option_panel(); toggle_forms($event)">Editar nombre paquete</li>
-                            <li class="paquete__menu-item" data-option="eliminar-paq" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar paquete</li>
-                            <li class="paquete__menu-item" data-option="option-elementos" (click)="toggle_option_panel(); toggle_forms($event)">Editar elementos</li>
-                        </ul>
-                    </div>
-                    <ul class="paquete_lista-items">
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                        <li class="paquete__item">Lorem ipsum dolor sit amet.</li>
-                    </ul>
-                </div> -->
+               
             </div>
             <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
-                <div class="proveedor" *ngFor="let prov of data_api">
-                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" data-menu="proveedor__menu1" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
-                    <div class="proveedor__menu proveedor__menu1">
+                <div class="proveedor" *ngFor="let prov of data_api; index as i">
+                    <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" [attr.data-menu]="'proveedores__menu' + (i+1)" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
+                    <div class="proveedor__menu {{'proveedores__menu'+ (i+1)}}">
                         <ul class="proveedor__menu-item-list">
                             <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
                             <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
