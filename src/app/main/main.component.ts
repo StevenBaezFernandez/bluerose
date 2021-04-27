@@ -12,6 +12,18 @@ export class MainComponent implements OnInit {
   data_api:any;
   url:any;
   cat2:string;
+  edit_prov_form = {
+    nombre_prov: '',
+    correo_prov: '',
+    telefono_prov: '',
+    direccion_prov: ''
+  }
+  add_prov_form = {
+    nombre_prov: '',
+    correo_prov: '',
+    telefono_prov: '',
+    direccion_prov: ''
+  }
 
   id_img_delete:string;
   url_img_delete:string;
@@ -24,6 +36,12 @@ export class MainComponent implements OnInit {
     galeria: false,
     paquetes: true,
     proveedores: false
+  }
+  add_edit(data:any){
+    this.edit_prov_form.nombre_prov = data.nombre;
+    this.edit_prov_form.correo_prov = data.correo;
+    this.edit_prov_form.telefono_prov = data.telefono;
+    this.edit_prov_form.direccion_prov = data.direccion;
   }
 
   toggle_option_panel(){
@@ -60,6 +78,7 @@ export class MainComponent implements OnInit {
   
   constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
 
+  // ------Crud methods------
   get_data(){
     let cat3 = '';
       if(this.tabs.galeria){
@@ -75,7 +94,9 @@ export class MainComponent implements OnInit {
         console.log(data);
       });
   }
-  
+  edit_data(){
+
+  }
   
   ngOnInit(): void {
     // capturando los datos de la ruta

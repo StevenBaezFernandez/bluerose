@@ -54,7 +54,7 @@
                     <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" [attr.data-menu]="'proveedores__menu' + (i+1)" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <div class="proveedor__menu {{'proveedores__menu'+ (i+1)}}">
                         <ul class="proveedor__menu-item-list">
-                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Editar proveedor</li>
+                            <li class="proveedor__menu-item" data-option="editar-proveedor" (click)="toggle_option_panel(); toggle_forms($event); ad_edit(prov)">Editar proveedor</li>
                             <li class="proveedor__menu-item" data-option="eliminar-proveedor" (click)="toggle_option_panel(); toggle_forms($event)">Eliminar proveedor</li>
                         </ul>
                     </div>
@@ -76,6 +76,7 @@
                         <p class="proveedor__value-direccion">{{prov.direccion_prov}}</p>
                     </div>
                 </div>
+                {{ edit_prov_form }}
             </div>  
         </div>
     </div>
@@ -191,15 +192,15 @@
         <!-- Editar proveedor -->
         <div class="option-panel__form" id="editar-proveedor">
             <h2 class="option-panel__title">Editar proveedor</h2>
-            <form>
-                <label for="">Nombre:</label>
-                <input type="text" class="option-panel__input-edit-prov" value="Jane cooper">
-                <label for="">Correo:</label>
-                <input type="text" class="option-panel__input-edit-prov" value="correo@correo.com">
-                <label for="">Telefono:</label>
-                <input type="text" class="option-panel__input-edit-prov" value="809-345-3453">
+            <label for="">Nombre:</label>
+            <input type="text" class="option-panel__input-edit-prov">
+            <label for="">Correo:</label>
+            <input type="text" class="option-panel__input-edit-prov">
+            <label for="">Telefono:</label>
+            <input type="text" class="option-panel__input-edit-prov">
+            <label for="">Dirección:</label>
+            <input type="text" class="option-panel__input-edit-prov">
 
-            </form>
             <button class="option-panel__btn-enviar">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>
