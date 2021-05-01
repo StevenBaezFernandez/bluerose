@@ -74,6 +74,7 @@ export class MainComponent implements OnInit {
   
   constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
 
+  // ------Crud methods------
   get_data(){
     let cat3 = '';
       if(this.tabs.galeria){
@@ -89,7 +90,9 @@ export class MainComponent implements OnInit {
         console.log(data);
       });
   }
-  
+  edit_data(){
+
+  }
   
   ngOnInit(): void {
     // capturando los datos de la ruta
