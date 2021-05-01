@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
   data_api:any;
   url:any;
   cat2:string;
+  show_option_panel = false;
 
   id_img_delete:string;
   url_img_delete:string;
@@ -19,11 +20,24 @@ export class MainComponent implements OnInit {
   options_forms:any = {
     editar_nombre: true
   }
-  show_option_panel = false;
   tabs:any = {
     galeria: false,
     paquetes: true,
     proveedores: false
+  }
+  form_edit_prov:any = {
+    nombre: '',
+    correo: '',
+    telefono: '',
+    direccion: ''
+  } 
+
+  obtener_prov(prov:any){
+    console.log(prov);
+    this.form_edit_prov.nombre = `${prov.nombre_prov} ${prov.apellido_prov}`;
+    this.form_edit_prov.correo = prov.correo_prov;
+    this.form_edit_prov.telefono = prov.telefono_prov;
+    this.form_edit_prov.direccion = prov.direccion_prov;
   }
 
   toggle_option_panel(){

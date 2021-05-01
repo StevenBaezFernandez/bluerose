@@ -51,11 +51,13 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav" >
-                <img class="button-nav__img" src="assets/img/invitation.svg" alt="">
-                                     
-                <span class="button-nav__text">Invitaciones y subeniles</span>
-            </div>
+            <a routerLink="/invitaciones-subeniles">
+                <div class="button-nav" >
+                    <img class="button-nav__img" src="assets/img/invitation.svg" alt="">
+                
+                    <span class="button-nav__text">Invitaciones y subeniles</span>
+                </div>
+            </a>
         </div>
         <div class="navbar__item">
             <div class="button-nav" (click)="toggle_foto_video = !toggle_foto_video">

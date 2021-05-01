@@ -5,6 +5,9 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
+    path:':cat1', component: MainComponent
+  },
+  {
     path:':cat1/:cat2', component: MainComponent
   },
   {
