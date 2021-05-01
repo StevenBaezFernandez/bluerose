@@ -26,7 +26,9 @@ export class MainComponent implements OnInit {
     proveedores: false
   }
   form_edit_prov:any = {
+    id: null,
     nombre: '',
+    apellido: '',
     correo: '',
     telefono: '',
     direccion: ''
@@ -34,10 +36,12 @@ export class MainComponent implements OnInit {
 
   obtener_prov(prov:any){
     console.log(prov);
-    this.form_edit_prov.nombre = `${prov.nombre_prov} ${prov.apellido_prov}`;
+    this.form_edit_prov.id = prov.id_prov;
+    this.form_edit_prov.nombre = prov.nombre_prov;
+    this.form_edit_prov.apellido = prov.apellido_prov;
     this.form_edit_prov.correo = prov.correo_prov;
     this.form_edit_prov.telefono = prov.telefono_prov;
-    this.form_edit_prov.direccion = prov.direccion_prov;
+    this.form_edit_prov.direccion = prov.direccion_prov;    
   }
 
   toggle_option_panel(){
@@ -90,8 +94,11 @@ export class MainComponent implements OnInit {
         console.log(data);
       });
   }
-  edit_data(){
-
+  edit_prov(){
+    this._service.put(this.url.cat1, this.url.cat2, 'proveedores', this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
+        console.log(res);
+        this.get_data();
+    });
   }
   
   ngOnInit(): void {

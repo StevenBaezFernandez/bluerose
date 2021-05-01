@@ -193,6 +193,8 @@
             <h2 class="option-panel__title">Editar proveedor</h2>
             <label for="">Nombre:</label>
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_edit_prov.nombre">
+            <label for="">Apellido:</label>
+            <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_edit_prov.apellido">
             <label for="">Correo:</label>
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_edit_prov.correo">
             <label for="">Telefono:</label>
@@ -201,7 +203,7 @@
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_edit_prov.direccion">
             <p>{{form_edit_prov.nombre}}</p>
 
-            <button class="option-panel__btn-enviar">
+            <button class="option-panel__btn-enviar" (click)="edit_prov()">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
