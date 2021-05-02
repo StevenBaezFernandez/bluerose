@@ -25,6 +25,14 @@ export class MainComponent implements OnInit {
     paquetes: true,
     proveedores: false
   }
+  form_add_prov:any = {
+    nombre: '',
+    apellido: '',
+    correo: '',
+    telefono: '',
+    direccion: ''
+  } 
+
   form_edit_prov:any = {
     id: null,
     nombre: '',
@@ -33,26 +41,47 @@ export class MainComponent implements OnInit {
     telefono: '',
     direccion: ''
   } 
+  id_delete:any;
 
-  obtener_prov(prov:any){
-    console.log(prov);
-    this.form_edit_prov.id = prov.id_prov;
-    this.form_edit_prov.nombre = prov.nombre_prov;
-    this.form_edit_prov.apellido = prov.apellido_prov;
-    this.form_edit_prov.correo = prov.correo_prov;
-    this.form_edit_prov.telefono = prov.telefono_prov;
-    this.form_edit_prov.direccion = prov.direccion_prov;    
+  get_cat3(){
+    if(this.tabs.galeria){
+      return 'galeria';
+    }
+    else if(this.tabs.proveedores){
+      return 'proveedores';
+    }
+    else if(this.tabs.paquetes){
+      return 'items-paquetes';
+    }
+  }
+
+  obtener_prov(e:any, data:any){
+    const form_name:string =  e.target.dataset.option;
+    switch(form_name){
+      case 'editar-proveedor':
+        this.form_edit_prov.id = data.id_prov;
+        this.form_edit_prov.nombre = data.nombre_prov;
+        this.form_edit_prov.apellido = data.apellido_prov;
+        this.form_edit_prov.correo = data.correo_prov;
+        this.form_edit_prov.telefono = data.telefono_prov;
+        this.form_edit_prov.direccion = data.direccion_prov;
+      break;
+    } 
+  }
+  get_id_delete(id:any){
+    this.id_delete = id;
   }
 
   toggle_option_panel(){
     this.show_option_panel = !this.show_option_panel;   
   }
   toggle_forms(event:any){
+    console.log(event);
     const forms = document.querySelectorAll(".option-panel__form");
     forms.forEach((form)=>{
       form.classList.remove('option-panel__form-active');
     });
-    document.getElementById(`${event.target.dataset.option}`).classList.add('option-panel__form-active');
+    document.getElementById(`${event}`).classList.add('option-panel__form-active');
   }
   
   toggle_tabs(){
@@ -80,24 +109,28 @@ export class MainComponent implements OnInit {
 
   // ------Crud methods------
   get_data(){
-    let cat3 = '';
-      if(this.tabs.galeria){
-        cat3 = 'galeria';
-      }else if(this.tabs.paquetes){
-        cat3 = 'items-paquetes';
-      }else if(this.tabs.proveedores){
-        cat3 = 'proveedores';
-      }
       const { cat1, cat2} = this.url;
-      this._service.get(cat1, cat2, cat3).subscribe(data=>{
+      this._service.get(cat1, cat2, this.get_cat3()).subscribe(data=>{
         this.data_api = data;
         console.log(data);
       });
   }
+  add(){
+    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(), JSON.stringify(this.form_add_prov)).subscribe( res =>{
+      console.log(res);
+      this.get_data();
+  });
+  }
   edit_prov(){
-    this._service.put(this.url.cat1, this.url.cat2, 'proveedores', this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
+    this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
         console.log(res);
         this.get_data();
+    });
+  }
+  delete(){
+    this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_delete).subscribe(res =>{
+      console.log(res);
+      this.get_data();
     });
   }
   
