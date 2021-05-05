@@ -43,6 +43,8 @@ export class MainComponent implements OnInit {
   } 
   id_delete:any;
 
+  items_paq:any[] = [];
+
   get_cat3(){
     if(this.tabs.galeria){
       return 'galeria';
@@ -103,6 +105,14 @@ export class MainComponent implements OnInit {
     }
     
 
+  }
+
+  get_items_paq(items:any){
+    this.items_paq.length = 0;
+    items.forEach(item => {
+      this.items_paq.push(item.split('//'));
+    });
+    console.log(this.items_paq);
   }
   
   constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }

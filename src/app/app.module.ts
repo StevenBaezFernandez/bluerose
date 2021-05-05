@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
+import { IdlessPipe } from './idless.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    MainComponent
+    MainComponent,
+    IdlessPipe
   ],
   imports: [
     BrowserModule,
