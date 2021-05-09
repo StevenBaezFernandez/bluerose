@@ -93,7 +93,7 @@ $color-btn-enviar: #2E9AFE
     cursor: pointer
 .paquetes
     display: grid
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr
     grid-gap: 10px
     padding: 30px 0px
     display: none
@@ -107,6 +107,10 @@ $color-btn-enviar: #2E9AFE
     border-radius: 5px
     box-shadow: 1px 3px 6px rgba(0, 0, 0, .2)
     position: relative
+    cursor: pointer
+    user-select: none
+    &:hover
+        box-shadow: 2px 4px 7px rgba(0, 0, 0, .25)
 .paquete__title
     font-size: 1.3em
     color: #444

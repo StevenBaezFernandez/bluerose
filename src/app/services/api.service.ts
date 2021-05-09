@@ -10,8 +10,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   
 
-  get(cat1:string, cat2:string, cat3:string = 'galeria'): Observable<any>{    
-    return this.http.get(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}`);    
+  get(cat1:string, cat2:string, cat3:string = 'galeria', paquete:any = false): Observable<any>{    
+    return this.http.get(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}&paquete=${paquete}`);    
   }
   post(cat1:string, cat2:string, cat3:string = 'galeria', data:any){
     return this.http.post(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}`, data, {headers: this.header, responseType:"text"});

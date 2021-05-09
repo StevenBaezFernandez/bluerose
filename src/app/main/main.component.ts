@@ -23,7 +23,8 @@ export class MainComponent implements OnInit {
   tabs:any = {
     galeria: false,
     paquetes: true,
-    proveedores: false
+    proveedores: false,
+    items_paq: false
   }
   form_add_prov:any = {
     nombre: '',
@@ -53,7 +54,7 @@ export class MainComponent implements OnInit {
       return 'proveedores';
     }
     else if(this.tabs.paquetes){
-      return 'items-paquetes';
+      return 'paquetes';
     }
   }
 
@@ -90,6 +91,7 @@ export class MainComponent implements OnInit {
     this.tabs.galeria = false;
     this.tabs.paquetes = false;
     this.tabs.proveedores = false;
+    this.tabs.items_paq = false;
   }
   toggle_menu(event:any){
     console.log(event.target.dataset);
@@ -107,13 +109,13 @@ export class MainComponent implements OnInit {
 
   }
 
-  get_items_paq(items:any){
-    this.items_paq.length = 0;
-    items.forEach(item => {
-      this.items_paq.push(item.split('//'));
-    });
-    console.log(this.items_paq);
-  }
+  // get_items_paq(items:any){
+  //   this.items_paq.length = 0;
+  //   items.forEach(item => {
+  //     this.items_paq.push(item.split('//'));
+  //   });
+  //   console.log(this.items_paq);
+  // }
   
   constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
 
@@ -123,6 +125,20 @@ export class MainComponent implements OnInit {
       this._service.get(cat1, cat2, this.get_cat3()).subscribe(data=>{
         this.data_api = data;
         console.log(data);
+      });
+  }
+  get_items_paq(paq){
+    const { cat1, cat2} = this.url;
+      this._service.get(cat1, cat2, 'items-paquetes', paq).subscribe(data=>{
+        let arr:any[] = [];
+        arr['paquete'] = data.paquete;
+        for(let i of data['items']){
+          arr.push(i);
+        }
+        this.toggle_tabs();
+        this.tabs.items_paq = true;
+        this.data_api = arr;
+        console.log(this.data_api);
       });
   }
   add(){
