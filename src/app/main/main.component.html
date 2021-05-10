@@ -96,7 +96,7 @@
                         <input type="checkbox" class="items-list__item-check" name="item-check" value="{{ i.id }}" id="{{ i.id }}">
                         <span class="items-list__item-content">{{ i.nombre }}</span>
                         <i class="items-paq__item-btn-edit fas fa-pencil-alt" (click)="toggle_option_panel(); toggle_forms('editar-item-paq'); get_item_to_edit(i.id, i.nombre)"></i>
-                        <i class="items-paq__item-btn-delete fas fa-trash-alt"></i>
+                        <i class="items-paq__item-btn-delete fas fa-trash-alt" (click)="toggle_option_panel(); toggle_forms('eliminar-item-paq'); get_item_to_delete(i.id, i.nombre)"></i>
                     </li>
                 </ul>
             </div>
@@ -143,6 +143,15 @@
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]="form_edit_item_paq.item">
 
             <button class="option-panel__btn-enviar" (click)="edit_item_paq()">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="option-panel__form" id="eliminar-item-paq">
+            <h2 class="option-panel__title">Se eliminará el elemento <span class="option-panel__form_highlight">{{ id_item_paq_delete.item}}</span></h2>
+
+            <button class="option-panel__btn-enviar" (click)="delete_item_paq()">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
