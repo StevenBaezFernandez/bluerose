@@ -81,16 +81,28 @@
                     </div>
                 </div>
             </div>  
+            <!-- items paquetes -->
+            <div class="items-paq" [ngClass]="{'items-paq-show': tabs.items_paq, 'items-paq-hide': !tabs.items_paq}">
+                <div class="items-paq__header">
+                    <h2 class="items-paq__title">{{ data_api.paquete }}</h2>
+                    <button class="items-paq__btn-add">
+                        <span class="items-paq__btn-add-content">Nuevo</span>
+                        <i class="items-paq__btn-add-icon fas fa-plus"></i>
+                    </button>
+                </div>
+
+                <ul class="items-list">
+                    <li *ngFor="let i of data_api" class="items-list__item">
+                        <input type="checkbox" class="items-list__item-check" name="item-check" value="{{ i.id }}" id="{{ i.id }}">
+                        <span class="items-list__item-content">{{ i.nombre }}</span>
+                        <i class="items-paq__item-btn-edit fas fa-pencil-alt"></i>
+                        <i class="items-paq__item-btn-delete fas fa-trash-alt"></i>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- items paquetes -->
-    <div class="items-paq">
-        <h2 class="items-paq__title">{{ data_api.paquete }}</h2>
-        <ul>
-            <li *ngFor="let i of data_api" id="{{ i.id }}">{{ i.nombre }}</li>
-        </ul>
-    </div>
 
     <!-- Editar nombre paq -->
     <div class="option-panel" [ngClass]="{'option-panel-active': show_option_panel}">
