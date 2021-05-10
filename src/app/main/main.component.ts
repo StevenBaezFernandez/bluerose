@@ -41,10 +41,15 @@ export class MainComponent implements OnInit {
     correo: '',
     telefono: '',
     direccion: ''
-  } 
+  }
+  form_add_item_paq:any = {
+    item: ''
+  }; 
   id_delete:any;
 
   items_paq:any[] = [];
+
+  paquete:any;
 
   get_cat3(){
     if(this.tabs.galeria){
@@ -55,6 +60,23 @@ export class MainComponent implements OnInit {
     }
     else if(this.tabs.paquetes){
       return 'paquetes';
+    }
+    else if(this.tabs.items_paq){
+      return 'items-paquetes';
+    }
+  }
+  get_data_to_send(){
+    if(this.tabs.galeria){
+      return 'galeria';
+    }
+    else if(this.tabs.proveedores){
+      return this.form_add_prov;
+    }
+    else if(this.tabs.paquetes){
+      return this.form_add_item_paq;
+    }
+    else if(this.tabs.items_paq){
+      return this.form_add_item_paq;
     }
   }
 
@@ -128,6 +150,7 @@ export class MainComponent implements OnInit {
       });
   }
   get_items_paq(paq){
+    this.paquete = paq;
     const { cat1, cat2} = this.url;
       this._service.get(cat1, cat2, 'items-paquetes', paq).subscribe(data=>{
         let arr:any[] = [];
@@ -141,8 +164,14 @@ export class MainComponent implements OnInit {
         console.log(this.data_api);
       });
   }
+  add_items_paq(){
+    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
+      console.log(res);
+      this.get_items_paq(this.paquete);
+  });
+  }
   add(){
-    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(), JSON.stringify(this.form_add_prov)).subscribe( res =>{
+    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
       console.log(res);
       this.get_data();
   });

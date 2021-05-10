@@ -85,7 +85,7 @@
             <div class="items-paq" [ngClass]="{'items-paq-show': tabs.items_paq, 'items-paq-hide': !tabs.items_paq}">
                 <div class="items-paq__header">
                     <h2 class="items-paq__title">{{ data_api.paquete }}</h2>
-                    <button class="items-paq__btn-add">
+                    <button class="items-paq__btn-add" (click)="toggle_option_panel(); toggle_forms('agregar-item-paq');">
                         <span class="items-paq__btn-add-content">Nuevo</span>
                         <i class="items-paq__btn-add-icon fas fa-plus"></i>
                     </button>
@@ -125,66 +125,18 @@
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-        <!-- Editar elementos de paq -->
-        <div class="option-panel__form" id="option-elementos">
-            <h2 class="option-panel__title">Elementos del paquete numero1</h2>
-            <div class="option-panel__wraper-btns">
-                <button class="option-panel__btn-options" data-option="eliminar-elementos" (click)="toggle_forms('eliminar-elementos')">Eliminar</button>
-                <button class="option-panel__btn-options" data-option="editar-elementos" (click)="toggle_forms('editar-elementos')">Editar</button>
-                <button class="option-panel__btn-options" data-option="agregar-elementos" (click)="toggle_forms('agregar-elementos')">Agregar</button>
-            </div>
+        <!-- Agregar item paq -->
+        <div class="option-panel__form" id="agregar-item-paq">
+            <h2 class="option-panel__title">Agregar nuevo elemento</h2>
+            <label for="">Nuevo elemento:</label>
+            <input type="text" class="option-panel__input-edit-prov" [(ngModel)]="form_add_item_paq.item">
 
-            <div class="option-panel__wraper-element" *ngFor="let item of items_paq">
-                <input class="option-panel__checkbox-element" type="checkbox" name="{{item[1]}}" id="{{item[1]}}">
-                <label for="{{item[1]}}" class="paquete__item">{{ item[0] }}</label>
-            </div>
-        </div>
-        <!-- agregar elementos a paq -->
-        <div class="option-panel__form"  id="agregar-elementos">
-            <h2 class="option-panel__title">Agregar elementos al paquete numero1</h2>
-            <form>
-                <label for="elemento_paq">Agrega nuevo elemento aqui:</label>
-                <input type="text" class="option-panel__input_elemento_paq" id="input_elemento_paq">
-            </form>
-            <button class="option-panel__btn-enviar">
+            <button class="option-panel__btn-enviar" (click)="add_items_paq()">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-        <!-- Editar elemento paq -->
-        <div class="option-panel__form"  id="editar-elementos">
-            <h2 class="option-panel__title">Editar elementos del paquete numero1</h2>
-            <form class="option-panel__form-editar-items">
-                <label for="elemento_paq1">Nuevo nombre item1</label>
-                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq1">
-                <label for="elemento_paq2">Nuevo nombre item2</label>
-                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq2">
-                <label for="elemento_paq3">Nuevo nombre item3</label>
-                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq3">
-                <label for="elemento_paq4">Nuevo nombre item4</label>
-                <input class="option-panel__input-iditar-items" type="text" id="elemento_paq4">
 
-            </form>
-            <button class="option-panel__btn-enviar">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </div>
-        <!-- Eliminar elementos de paquetes -->
-        <div class="option-panel__form"  id="eliminar-elementos">
-            <h2 class="option-panel__title">Esta seguro que desea eliminar del paquete1:</h2>
-            <ul class="option-panel__delete-item-list">
-                <li class="option-panel__delete-item">lorem1</li>
-                <li class="option-panel__delete-item">lorem2</li>
-                <li class="option-panel__delete-item">lorem3</li>
-                <li class="option-panel__delete-item">lorem4</li>
-                <li class="option-panel__delete-item">lorem5</li>
-            </ul>
-            <button class="option-panel__btn-enviar">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        </div>
 
         <!-- Agregar proveedor -->
         <div class="option-panel__form" id="agregar-proveedor">
