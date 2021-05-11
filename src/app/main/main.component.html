@@ -95,7 +95,7 @@
                     <li *ngFor="let i of data_api" class="items-list__item">
                         <input type="checkbox" class="items-list__item-check" name="item-check" value="{{ i.id }}" id="{{ i.id }}">
                         <span class="items-list__item-content">{{ i.nombre }}</span>
-                        <i class="items-paq__item-btn-edit fas fa-pencil-alt"></i>
+                        <i class="items-paq__item-btn-edit fas fa-pencil-alt" (click)="toggle_option_panel(); toggle_forms('editar-item-paq'); get_item_to_edit(i.id, i.nombre)"></i>
                         <i class="items-paq__item-btn-delete fas fa-trash-alt"></i>
                     </li>
                 </ul>
@@ -132,6 +132,17 @@
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]="form_add_item_paq.item">
 
             <button class="option-panel__btn-enviar" (click)="add_items_paq()">
+                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <!-- Editar item paq -->
+        <div class="option-panel__form" id="editar-item-paq">
+            <h2 class="option-panel__title">Editar elemento</h2>
+            <label for="">Escribe aqui:</label>
+            <input type="text" class="option-panel__input-edit-prov" [(ngModel)]="form_edit_item_paq.item">
+
+            <button class="option-panel__btn-enviar" (click)="edit_item_paq()">
                 <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
                 <i class="fas fa-arrow-right"></i>
             </button>

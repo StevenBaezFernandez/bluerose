@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
 
   id_img_delete:string;
   url_img_delete:string;
+  id_edit_item:number;
 
   options_forms:any = {
     editar_nombre: true
@@ -44,13 +45,23 @@ export class MainComponent implements OnInit {
   }
   form_add_item_paq:any = {
     item: ''
-  }; 
+  };
   id_delete:any;
 
   items_paq:any[] = [];
 
   paquete:any;
 
+  form_edit_item_paq:any = {
+    id: null,
+    paq: null,
+    item: ''
+  }; 
+  get_item_to_edit(item_id:number, item_nombre){
+    this.form_edit_item_paq.id = item_id;
+    this.form_edit_item_paq.paq = this.paquete;
+    this.form_edit_item_paq.item = item_nombre;
+  }
   get_cat3(){
     if(this.tabs.galeria){
       return 'galeria';
@@ -180,6 +191,12 @@ export class MainComponent implements OnInit {
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
         console.log(res);
         this.get_data();
+    });
+  }
+  edit_item_paq(){
+    this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_edit_item, JSON.stringify(this.form_edit_item_paq)).subscribe( res =>{
+        console.log(res);
+        this.get_items_paq(this.paquete);
     });
   }
   delete(){
