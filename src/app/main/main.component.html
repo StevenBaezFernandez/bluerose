@@ -93,7 +93,7 @@
 
                 <ul class="items-list">
                     <li *ngFor="let i of data_api" class="items-list__item">
-                        <input type="checkbox" class="items-list__item-check" name="item-check" value="{{ i.id }}" id="{{ i.id }}">
+                        <input type="checkbox" class="items-list__item-check" (click)="get_items_to_delete($event, i.id)" name="item-check" value="{{ i.id }}" id="{{ i.id }}">
                         <span class="items-list__item-content">{{ i.nombre }}</span>
                         <i class="items-paq__item-btn-edit fas fa-pencil-alt" (click)="toggle_option_panel(); toggle_forms('editar-item-paq'); get_item_to_edit(i.id, i.nombre)"></i>
                         <i class="items-paq__item-btn-delete fas fa-trash-alt" (click)="toggle_option_panel(); toggle_forms('eliminar-item-paq'); get_item_to_delete(i.id, i.nombre)"></i>

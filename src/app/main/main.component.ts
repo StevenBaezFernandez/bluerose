@@ -62,6 +62,19 @@ export class MainComponent implements OnInit {
     paq: null,
     item: ''
   }; 
+  items_to_delete:any[] = [];
+
+  get_items_to_delete(event:any, item:number){
+    const target = event.target;
+    if(target.checked ){
+      this.items_to_delete.push(item);
+    }else{
+      this.items_to_delete = this.items_to_delete.filter((i)=>{
+        return i != item;
+      });
+    }
+    console.log(this.items_to_delete);
+  }
   get_item_to_delete(item_id:number, item_nombre:string){
     this.id_item_paq_delete.id = item_id;
     this.id_item_paq_delete.item = item_nombre;
