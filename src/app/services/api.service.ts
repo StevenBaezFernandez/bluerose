@@ -19,7 +19,7 @@ export class ApiService {
   put(cat1:string, cat2:string, cat3:string = 'galeria', id:number, data:any){
     return this.http.put(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}&id=${id}`, data, {headers: this.header, responseType:"text"});
   }
-  delete(cat1:string, cat2:string, cat3:string = 'galeria', id:number){
-    return this.http.delete(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}&id=${id}`);
+  delete(cat1:string, cat2:string, cat3:string = 'galeria', id:number, items:any = false){
+    return this.http.delete(`http://localhost/bluerose_api/api.php?cat1=${cat1}&cat2=${cat2}&cat3=${cat3}&id=${id}&items=${items}`, {headers: this.header, responseType:"text"});
   }
 }

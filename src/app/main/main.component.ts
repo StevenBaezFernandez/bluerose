@@ -252,6 +252,18 @@ export class MainComponent implements OnInit {
       this.get_items_paq(this.paquete);
     });
   }
+
+  delete_items_paq(){
+    let items:string = "";
+    this.items_to_delete.forEach(item => {
+      items += (item + '/');
+    });
+    this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_item_paq_delete.id, items).subscribe(res =>{
+      this.vaciar_items_to_delete();
+      console.log(res);
+      this.get_items_paq(this.paquete);
+    });
+  }
   
   ngOnInit(): void {
     // capturando los datos de la ruta
