@@ -85,6 +85,14 @@
             <div class="items-paq" [ngClass]="{'items-paq-show': tabs.items_paq, 'items-paq-hide': !tabs.items_paq}">
                 <div class="items-paq__header">
                     <h2 class="items-paq__title">{{ data_api.paquete }}</h2>
+                    <div class="items-paq__header-selected" [ngClass]="{'items-paq__header-selected-show': show_cont_i_t_delete }">
+                        <p>
+                            {{ items_to_delete.length }} seleccionados
+                            <button class="items-paq__header-btns">Cancelar</button>
+                            <button class="items-paq__header-btns">Borrar</button>
+                            <i class="fas fa-times items-paq__header-icon-cerrar" (click)="vaciar_items_to_delete()"></i>
+                        </p>
+                    </div>
                     <button class="items-paq__btn-add" (click)="toggle_option_panel(); toggle_forms('agregar-item-paq');">
                         <span class="items-paq__btn-add-content">Nuevo</span>
                         <i class="items-paq__btn-add-icon fas fa-plus"></i>

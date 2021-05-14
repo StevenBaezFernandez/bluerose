@@ -63,7 +63,24 @@ export class MainComponent implements OnInit {
     item: ''
   }; 
   items_to_delete:any[] = [];
-
+  show_cont_i_t_delete:boolean;
+  vaciar_items_to_delete(){
+    this.items_to_delete.forEach(item => {
+      const element = document.getElementById(`${item}`) as HTMLInputElement;
+      element.checked = false;
+    });
+    
+    this.items_to_delete = [];
+    this.toggle_counter();
+  }
+  toggle_counter(){
+    if(this.items_to_delete.length > 0){
+      this.show_cont_i_t_delete = true;
+    }else{
+      this.show_cont_i_t_delete = false;
+    }
+  }
+  
   get_items_to_delete(event:any, item:number){
     const target = event.target;
     if(target.checked ){
@@ -73,6 +90,8 @@ export class MainComponent implements OnInit {
         return i != item;
       });
     }
+    this.toggle_counter();
+    
     console.log(this.items_to_delete);
   }
   get_item_to_delete(item_id:number, item_nombre:string){
