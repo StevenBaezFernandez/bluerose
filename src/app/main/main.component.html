@@ -5,6 +5,9 @@
             <div class="separator-line"></div>
             <h2 class="header-component__text-info-cat2">{{url.cat2}}</h2>
         </div>
+        <div class="header-component__message" [ngClass]="{'header-component__message-show': message_alert.show, 'header-component__message-hide': message_alert.hide}">
+            <p>{{message_alert.text}}</p>
+        </div>
         <div class="header-component__photo-profile">
             <img src="assets/img/profile.svg" class="header-component__photo-profile-img" alt="">
         </div>
@@ -118,50 +121,62 @@
             <h2 class="option-panel__title">Editar paquete numero1</h2>
             <label for="nombre-paquete" class="option-panel__label">Nuevo nombre del paquete:</label>
             <input type="text" class="option-panel__input" id="nombre-paquete">
-            <button class="option-panel__btn-enviar">
-                <span class="option-panel__btn-enviar-text">Enviar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar">
+                    <span class="option-panel__btn-enviar-text">Enviar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
         <!-- Eliminar paq -->
         <div class="option-panel__form" id="eliminar-paq">
             <h2 class="option-panel__title">Eliminar paquete numero1</h2>
             <h3 class="option-panel__warning-delete">¿Esta seguro que desea eliminar el paquete <span class="option-panel__red">Paquete1</span>?</h3>
-            <button class="option-panel__btn-enviar">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
         <!-- Agregar item paq -->
         <div class="option-panel__form" id="agregar-item-paq">
             <h2 class="option-panel__title">Agregar nuevo elemento</h2>
             <label for="">Nuevo elemento:</label>
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]="form_add_item_paq.item">
-
-            <button class="option-panel__btn-enviar" (click)="add_items_paq()">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar" (click)="add_items_paq(); loader_icon = true">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
         <!-- Editar item paq -->
         <div class="option-panel__form" id="editar-item-paq">
             <h2 class="option-panel__title">Editar elemento</h2>
             <label for="">Escribe aqui:</label>
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]="form_edit_item_paq.item">
-
-            <button class="option-panel__btn-enviar" (click)="edit_item_paq()">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar" (click)="edit_item_paq(); loader_icon = true">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
 
         <div class="option-panel__form" id="eliminar-item-paq">
             <h2 class="option-panel__title">Se eliminará el elemento <span class="option-panel__form_highlight">{{ id_item_paq_delete.item}}</span></h2>
-
-            <button class="option-panel__btn-enviar" (click)="delete_item_paq()">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar" (click)="delete_item_paq(); loader_icon = true">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
 
 
@@ -178,11 +193,13 @@
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_add_prov.telefono">
             <label for="">Dirección:</label>
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_add_prov.direccion">
-
-            <button class="option-panel__btn-enviar" (click)="add()">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar" (click)="add(); loader_icon = true">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Editar proveedor -->
@@ -198,30 +215,38 @@
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_edit_prov.telefono">
             <label for="">Dirección:</label>
             <input type="text" class="option-panel__input-edit-prov" [(ngModel)]= "form_edit_prov.direccion">
-
-            <button class="option-panel__btn-enviar" (click)="edit_prov()">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar" (click)="edit_prov(); loader_icon = true">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
         <!-- Eliminar proveedor -->
         <div class="option-panel__form" id="eliminar-proveedor">
             <h2 class="option-panel__title">¿Está seguro que desea eliminar este proveedor?</h2>
-
-            <button class="option-panel__btn-enviar" (click)="delete()">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar" (click)="delete(); loader_icon = true">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
         <!-- Eliminar imagen -->
         <div class="option-panel__form" id="eliminar-imagen">
             <h2 class="option-panel__title">¿Está seguro que desea eliminar esta imagen?</h2>
             <h3 class="option-panel__id-info"><span class="option-panel__id-info-t">Id:</span>{{ id_img_delete }}</h3>
             <img src="{{ url_img_delete }}" class="option-panel__img-form" alt="">
-            <button class="option-panel__btn-enviar">
-                <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
-                <i class="fas fa-arrow-right"></i>
-            </button>
+
+            <div class="option-panel__form-container-btn-loader">
+                <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
+                <button class="option-panel__btn-enviar">
+                    <span class="option-panel__btn-enviar-text">Aceptar y continuar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
         </div>
 
 

@@ -9,6 +9,26 @@ $color-btn-enviar: #2E9AFE
     border-bottom: 1px solid #eee
     padding: 10px
     margin-bottom: 10px
+.header-component__message
+    background: #4ecc4533
+    visibility: hidden
+    padding: 0px 20px
+    border-radius: 2px
+    color: #007722
+    transform: translateY(-75px)
+@keyframes message
+    0%
+        visibility: hidden
+        transform: translateY(-75px)
+    100%
+        visibility: visible
+        transform: translateY(0px)
+        
+.header-component__message-show
+    visibility: visible
+    animation: message .2s ease 0s forwards
+.header-component__message-hide
+    animation: message .2s ease 0s forwards reverse
 .header-component__text-info
     display: flex
     align-items: center
@@ -247,9 +267,6 @@ $color-btn-enviar: #2E9AFE
     cursor: pointer
 
 .option-panel__btn-enviar
-    position: absolute
-    bottom: 20px
-    right: 20px
     border: none
     font-size: 16px
     padding: 10px 30px
@@ -258,6 +275,12 @@ $color-btn-enviar: #2E9AFE
     background: $color-btn-enviar
     border-radius: 2px
     color: #fff
+    transition: all ease .3s
+    &:active
+        transform: scale(.95)
+        background: #1e79ce
+    &:hover
+        background: #458fd3
 .option-panel__btn-enviar-text
     margin-right: 5px
 
@@ -378,3 +401,47 @@ $color-btn-enviar: #2E9AFE
     margin-right: 5px
 .items-paq__btn-add-icon
     color: #555
+.option-panel__form-container-btn-loader
+    position: absolute
+    bottom: 20px
+    right: 20px
+    overflow: hidden
+    width: 90%
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+// -----------------------------------------preloader---------------------------------------
+
+.lds-ring 
+  display: inline-block
+  position: relative
+  width: 20px
+  height: 20px
+  visibility: hidden
+  &.active
+      visibility: visible
+.lds-ring div 
+  box-sizing: border-box
+  display: block
+  position: absolute
+  width: 25px
+  height: 25px
+  margin: 0px
+  border: 3px solid #166ee1
+  border-radius: 50%
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+  border-color: #166ee1 transparent transparent transparent
+.lds-ring div:nth-child(1) 
+  animation-delay: -0.45s
+.lds-ring div:nth-child(2) 
+  animation-delay: -0.3s
+.lds-ring div:nth-child(3) 
+  animation-delay: -0.15s
+@keyframes lds-ring 
+  0% 
+    transform: rotate(0deg)
+
+  100% 
+    transform: rotate(360deg)
+

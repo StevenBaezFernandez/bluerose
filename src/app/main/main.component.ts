@@ -22,6 +22,11 @@ export class MainComponent implements OnInit {
     id: null,
     item: ''
   }
+  message_alert:any = {
+    show: false,
+    text: '',
+    success: true
+  }
 
   options_forms:any = {
     editar_nombre: true
@@ -64,6 +69,18 @@ export class MainComponent implements OnInit {
   }; 
   items_to_delete:any[] = [];
   show_cont_i_t_delete:boolean;
+
+  loader_icon:boolean = false;
+  setup_message(show:boolean, hide:boolean, text:string, success:boolean){
+    this.message_alert.show = show;
+    this.message_alert.hide = hide;
+    this.message_alert.text = text;
+    this.message_alert.success = success;
+    setTimeout(()=>{
+      this.message_alert.hide = true;
+      this.message_alert.show = true;
+    },3000);
+  }
   vaciar_items_to_delete(){
     this.items_to_delete.forEach(item => {
       const element = document.getElementById(`${item}`) as HTMLInputElement;
@@ -194,9 +211,13 @@ export class MainComponent implements OnInit {
   constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
 
   // ------Crud methods------
-  get_data(){
+  get_data(){      
       const { cat1, cat2} = this.url;
       this._service.get(cat1, cat2, this.get_cat3()).subscribe(data=>{
+        setTimeout(()=>{
+          this.loader_icon = false;
+          this.show_option_panel = false;
+        },500);
         this.data_api = data;
         console.log(data);
       });
@@ -205,6 +226,10 @@ export class MainComponent implements OnInit {
     this.paquete = paq;
     const { cat1, cat2} = this.url;
       this._service.get(cat1, cat2, 'items-paquetes', paq).subscribe(data=>{
+        setTimeout(()=>{
+          this.loader_icon = false;
+          this.show_option_panel = false;
+        },500);
         let arr:any[] = [];
         arr['paquete'] = data.paquete;
         for(let i of data['items']){
@@ -217,43 +242,56 @@ export class MainComponent implements OnInit {
       });
   }
   add_items_paq(){
+    
     this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
       console.log(res);
+      this.setup_message(true, false, '¡Elemento guardado correctamente!', true);
       this.get_items_paq(this.paquete);
   });
   }
   add(){
+    
     this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
       console.log(res);
+      this.setup_message(true, false,  '¡Elemento guardado correctamente!', true);
       this.get_data();
   });
   }
   edit_prov(){
+    
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
         console.log(res);
+        this.setup_message(true, false,  '¡Elemento editado correctamente!', true);
         this.get_data();
     });
   }
   edit_item_paq(){
+    
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_edit_item, JSON.stringify(this.form_edit_item_paq)).subscribe( res =>{
         console.log(res);
+        this.setup_message(true, false, '¡Elemento editado correctamente!', true);
         this.get_items_paq(this.paquete);
     });
   }
   delete(){
+    
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_delete).subscribe(res =>{
       console.log(res);
+      this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
       this.get_data();
     });
   }
   delete_item_paq(){
+    
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_item_paq_delete.id).subscribe(res =>{
       console.log(res);
+      this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
       this.get_items_paq(this.paquete);
     });
   }
 
   delete_items_paq(){
+    
     let items:string = "";
     this.items_to_delete.forEach(item => {
       items += (item + '/');
@@ -261,6 +299,7 @@ export class MainComponent implements OnInit {
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_item_paq_delete.id, items).subscribe(res =>{
       this.vaciar_items_to_delete();
       console.log(res);
+      this.setup_message(true, false, '¡Elementos eliminados correctamente!', true);
       this.get_items_paq(this.paquete);
     });
   }
