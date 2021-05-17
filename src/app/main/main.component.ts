@@ -229,7 +229,7 @@ export class MainComponent implements OnInit {
 
   // ------Crud methods------
   get_data(){      
-      const { cat1, cat2} = this.url;
+      const { cat1, cat2='none'} = this.url;
       this._service.get(cat1, cat2, this.get_cat3()).subscribe(data=>{
         setTimeout(()=>{
           this.loader_icon = false;
@@ -241,7 +241,7 @@ export class MainComponent implements OnInit {
   }
   get_items_paq(paq){
     this.paquete = paq;
-    const { cat1, cat2} = this.url;
+    const { cat1, cat2='none'} = this.url;
       this._service.get(cat1, cat2, 'items-paquetes', paq).subscribe(data=>{
         setTimeout(()=>{
           this.loader_icon = false;
@@ -259,16 +259,16 @@ export class MainComponent implements OnInit {
       });
   }
   add_items_paq(){
-    
-    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
+    const { cat1, cat2='none'} = this.url;
+    this._service.post(cat1, cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
       console.log(res);
       this.setup_message(true, false, '¡Elemento guardado correctamente!', true);
       this.get_items_paq(this.paquete);
   });
   }
   add(){
-    
-    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
+    const { cat1, cat2='none'} = this.url;
+    this._service.post(cat1, cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
       console.log(res);
       this.setup_message(true, false,  '¡Elemento guardado correctamente!', true);
       this.get_data();
@@ -276,11 +276,12 @@ export class MainComponent implements OnInit {
   }
 
   add_paq(){
-    
-    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
+    const { cat1, cat2='none'} = this.url;
+    this._service.post(cat1, cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
       console.log(res);
       this.setup_message(true, false,  '¡Elemento guardado correctamente!', true);
       this.get_data();
+      console.log(this.url);
   });
   }  
 
