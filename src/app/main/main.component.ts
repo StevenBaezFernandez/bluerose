@@ -56,6 +56,14 @@ export class MainComponent implements OnInit {
   form_add_item_paq:any = {
     item: ''
   };
+  form_edit_name_paq:any = {
+    id: null,
+    nombre_paq: ''
+  }
+  form_add_paq:any = {
+    nombre_paq: ''
+  }
+  paq_to_delete:number;
   id_delete:any;
 
   items_paq:any[] = [];
@@ -71,6 +79,15 @@ export class MainComponent implements OnInit {
   show_cont_i_t_delete:boolean;
 
   loader_icon:boolean = false;
+
+  get_paq_to_edit(paq_id:number, paq_name:string){
+    this.form_edit_name_paq.id = paq_id;
+    this.form_edit_name_paq.nombre_paq = paq_name; 
+  }
+  get_paq_to_delete(id:number){
+    this.paq_to_delete = id;
+  }
+
   setup_message(show:boolean, hide:boolean, text:string, success:boolean){
     this.message_alert.show = show;
     this.message_alert.hide = hide;
@@ -142,7 +159,7 @@ export class MainComponent implements OnInit {
       return this.form_add_prov;
     }
     else if(this.tabs.paquetes){
-      return this.form_add_item_paq;
+      return this.form_add_paq;
     }
     else if(this.tabs.items_paq){
       return this.form_add_item_paq;
@@ -257,6 +274,16 @@ export class MainComponent implements OnInit {
       this.get_data();
   });
   }
+
+  add_paq(){
+    
+    this._service.post(this.url.cat1, this.url.cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
+      console.log(res);
+      this.setup_message(true, false,  '¡Elemento guardado correctamente!', true);
+      this.get_data();
+  });
+  }  
+
   edit_prov(){
     
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
@@ -273,9 +300,24 @@ export class MainComponent implements OnInit {
         this.get_items_paq(this.paquete);
     });
   }
+  edit_name_paq(){
+    this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_name_paq.id, JSON.stringify(this.form_edit_name_paq)).subscribe( res =>{
+      console.log(res);
+      this.setup_message(true, false, '¡Elemento editado correctamente!', true);
+      this.get_data();
+  });
+  }
   delete(){
     
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_delete).subscribe(res =>{
+      console.log(res);
+      this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      this.get_data();
+    });
+  }
+  delete_paq(){
+    
+    this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.paq_to_delete).subscribe(res =>{
       console.log(res);
       this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
       this.get_data();
