@@ -87,6 +87,7 @@ export class MainComponent implements OnInit {
     fd.append('image', file, file.name);
     this._service.post(cat1, cat2, this.get_cat3(), this.paquete, file ).subscribe(res => {
       console.log(res);
+      this.get_data();
     });
     console.log(fd);   
   }
