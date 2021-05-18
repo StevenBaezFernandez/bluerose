@@ -20,7 +20,11 @@
                 <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.proveedores}" (click)="toggle_tabs(); tabs.proveedores = true; get_data();">Proveedores</li>
             </nav>
             <div class="content-component__header-icon-upload-image">
-                <i class="fas fa-upload" title="Subir imagen"></i>
+                <label for="upload-image" class="content-component__header-icon-upload-image-label">
+                    <i class="fas fa-upload"></i>
+                </label>
+                <input type="file" name="upload-image" id="upload-image" (change)="show_file($event)" class="content-component__header-icon-upload-image-input">
+                <!-- <i class="fas fa-upload" title="Subir imagen"></i> -->
             </div>
         </div>            
         <div class="content-component__body">
