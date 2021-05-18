@@ -85,7 +85,7 @@ export class MainComponent implements OnInit {
     const file = e.target.files[0];
     const fd = new FormData();
     fd.append('image', file, file.name);
-    this._service.post(cat1, cat2, this.get_cat3(), this.paquete, fd ).subscribe(res => {
+    this._service.post(cat1, cat2, this.get_cat3(), this.paquete, file ).subscribe(res => {
       console.log(res);
     });
     console.log(fd);   
