@@ -78,6 +78,8 @@ export class MainComponent implements OnInit {
   items_to_delete:any[] = [];
   show_cont_i_t_delete:boolean;
 
+  img_to_delete:string;
+
   loader_icon:boolean = false;
 
   show_file(e){
@@ -96,6 +98,9 @@ export class MainComponent implements OnInit {
   }
   get_paq_to_delete(id:number){
     this.paq_to_delete = id;
+  }
+  get_img_to_delete(id:string){
+    this.img_to_delete = id;
   }
 
   setup_message(show:boolean, hide:boolean, text:string, success:boolean){
@@ -340,6 +345,14 @@ export class MainComponent implements OnInit {
       console.log(res);
       this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
       this.get_items_paq(this.paquete);
+    });
+  }
+  delete_img(){
+    
+    this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.img_to_delete).subscribe(res =>{
+      console.log(res);
+      this.setup_message(true, false, '¡Imagen eliminada correctamente!', true);
+      this.get_data();
     });
   }
 
