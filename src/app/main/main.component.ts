@@ -83,13 +83,11 @@ export class MainComponent implements OnInit {
   show_file(e){
     const {cat1, cat2='none'} = this.url;
     const file = e.target.files[0];
-    const fd = new FormData();
-    fd.append('image', file, file.name);
     this._service.post(cat1, cat2, this.get_cat3(), this.paquete, file ).subscribe(res => {
       console.log(res);
       this.get_data();
+      this.setup_message(true, false, 'imagen cargada correctamente!', true);
     });
-    console.log(fd);   
   }
 
   get_paq_to_edit(paq_id:number, paq_name:string){
