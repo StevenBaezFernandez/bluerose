@@ -1,9 +1,9 @@
 <div class="wraper-component">
     <div class="header-component">
         <div class="header-component__text-info">
-            <h1 class="header-component__text-info-cat1">{{url.cat1}}</h1>
+            <h1 class="header-component__text-info-cat1">{{url.cat1 | title}}</h1>
             <div class="separator-line"></div>
-            <h2 class="header-component__text-info-cat2">{{url.cat2}}</h2>
+            <h2 class="header-component__text-info-cat2">{{url.cat2 | title}}</h2>
         </div>
         <div class="header-component__message" [ngClass]="{'header-component__message-show': message_alert.show, 'header-component__message-hide': message_alert.hide}">
             <p>{{message_alert.text}}</p>

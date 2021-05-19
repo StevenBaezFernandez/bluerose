@@ -377,6 +377,11 @@ export class MainComponent implements OnInit {
       this.get_data();    
     });
 
+    var height = window.screen.height * .8;
+    let cont_component = document.querySelector('.content-component__body') as HTMLBodyElement;
+    cont_component.style.height = `${height}px`;
+
   }
+
 
 }
