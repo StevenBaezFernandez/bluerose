@@ -19,18 +19,27 @@
                 <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.paquetes || tabs.items_paq}" (click)="toggle_tabs(); tabs.paquetes = true; get_data();">Paquetes</li>
                 <li class="tabs-menu__item" [ngClass]="{'tabs-menu__item-active': tabs.proveedores}" (click)="toggle_tabs(); tabs.proveedores = true; get_data();">Proveedores</li>
             </nav>
-            <div class="content-component__header-icon-upload-image" *ngIf="tabs.galeria">
-                <label for="upload-image" class="content-component__header-icon-upload-image-label">
-                    <i class="fas fa-upload"></i>
-                </label>
-                <input type="file" name="upload-image" id="upload-image" (change)="show_file($event)" class="content-component__header-icon-upload-image-input">
-                <!-- <i class="fas fa-upload" title="Subir imagen"></i> -->
+            <div class="content-component__header-icon-upload-image">
+                <div class="container-btn-up-img" *ngIf="tabs.galeria">
+                    <label for="upload-image" class="content-component__header-icon-upload-image-label">
+                        <i class="fas fa-upload"></i>
+                    </label>
+                    <input type="file" name="upload-image" id="upload-image" (change)="show_file($event)" class="content-component__header-icon-upload-image-input">
+                </div>
+                <div class="container-btn-pack" *ngIf="tabs.paquetes">
+                    <button (click)="toggle_option_panel(); toggle_forms('agregar-paq');" class="paquetes__btn_agregar">Agregar nuevo paquete <i class="fas fa-plus"></i></button>
+                </div>
+                <div class="container-btn-prov" *ngIf="tabs.proveedores">
+                    <button class="proveedores__btn-agregar" data-option="agregar-proveedor" (click)="toggle_option_panel(); toggle_forms('agregar-proveedor');">
+                        <span class="proveedores__btn-agregar-text">Agregar nuevo proveedor</span>
+                        <i class="proveedores__btn-agregar-text-icon fas fa-user-plus"></i>
+                    </button>
+                </div>
             </div>
         </div>            
         <div class="content-component__body">
             <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}" *ngIf="!empty_data_api">
                 <div class="galeria__grid-imgs">
-
                     <div class="galeria__grid-img-container" *ngFor="let img of data_api; index as i">
                         <i class="galeria__three-dots fas fa-ellipsis-h" tabindex="1" [attr.data-img-url]="img.url_img" [attr.data-img-id]="img.id_img" [attr.data-menu]="'galeria__menu' + (i+1)" (focus)="toggle_menu($event)" (blur)="toggle_menu($event)"></i>
                         <div class="galeria__menu {{'galeria__menu'+ (i+1)}}">
@@ -44,12 +53,11 @@
             </div>
             <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}" *ngIf="empty_data_api">
                 <div class="galeria__container_menssage_no_data">
-                    <h3 class="galeria__container_menssage_no_data-text">No hay elementos aqui</h3>
+                    <h3 class="galeria__container_menssage_no_data-text">No hay elementos aquí</h3>
                     <img class="galeria__container_menssage_no_data-image" src="assets/img/no-data.svg" alt="">
                 </div>
             </div>
             <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">
-                <button (click)="toggle_option_panel(); toggle_forms('agregar-paq');" class="paquetes__btn_agregar">Agregar nuevo paquete <i class="fas fa-plus"></i></button>
                 <div class="paquete" *ngFor="let nombre_paq of data_api; index as i" (dblclick)="get_items_paq(nombre_paq.id_paq)">
                     <i class="paquete__three-dots fas fa-ellipsis-v" tabindex="1" [attr.data-menu]="'paquete__menu' + (i+1)" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <h3 class="paquete__title">{{nombre_paq.nombre_paq}}</h3>
@@ -67,10 +75,6 @@
                
             </div>
             <div class="proveedores" [ngClass]="{'proveedores-show': tabs.proveedores, 'proveedores-hide': !tabs.proveedores}">
-                <button class="proveedores__btn-agregar" data-option="agregar-proveedor" (click)="toggle_option_panel(); toggle_forms('agregar-proveedor');">
-                    <span class="proveedores__btn-agregar-text">Agregar nuevo proveedor</span>
-                    <i class="proveedores__btn-agregar-text-icon fas fa-user-plus"></i>
-                </button>
                 <div class="proveedor" *ngFor="let prov of data_api; index as i">
                     <i class="proveedor__three-dots fas fa-ellipsis-h" tabindex="1" [attr.data-prov]="prov" [attr.data-menu]="'proveedores__menu' + (i+1)" (blur)="toggle_menu($event)" (focus)="toggle_menu($event)"></i>
                     <div class="proveedor__menu {{'proveedores__menu'+ (i+1)}}">

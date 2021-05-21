@@ -2,7 +2,7 @@
 <div class="navbar">
     <div class="navbar__header">
 
-        <a routerLink="/" class="navbar__container-img">
+        <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/" class="navbar__container-img">
             <img src="assets/img/logo.png" alt="" class="navbar__header-img">
         </a>
     </div>
@@ -15,11 +15,11 @@
                 <span  class="button-nav__text" [ngClass]="{'button-nav__text--active': toggle_novia}">Novia</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_novia}"></i>
             </div>
-            <div class="navbar__sub-cat"  [ngClass]="{'navbar__sub-cat--expanded' : toggle_novia, 'navbar__sub-cat--collapsed': !toggle_novia}">
-                <a routerLink="/novia/maquillaje-peinado" class="navbar__sub-cat-link">Maquillaje y peinados</a>
-                <a routerLink="/novia/estilos-vestido" class="navbar__sub-cat-link">Vestidos</a>
-                <a routerLink="/novia/bouquet" class="navbar__sub-cat-link">Bouquet</a>
-                <a routerLink="/novia/ajuares" class="navbar__sub-cat-link">Ajuares</a>
+            <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active"  [ngClass]="{'navbar__sub-cat--expanded' : toggle_novia, 'navbar__sub-cat--collapsed': !toggle_novia}">
+                <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/novia/maquillaje-peinado" class="navbar__sub-cat-link">Maquillaje y peinados</a>
+                <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/novia/estilos-vestido" class="navbar__sub-cat-link">Vestidos</a>
+                <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/novia/bouquet" class="navbar__sub-cat-link">Bouquet</a>
+                <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/novia/ajuares" class="navbar__sub-cat-link">Ajuares</a>
             </div>
         </div>
         <div class="navbar__item">
@@ -29,10 +29,10 @@
                 <span class="button-nav__text">Novio</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_novio}"></i>
             </div>
-            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_novio, 'navbar__sub-cat--collapsed': !toggle_novio}">
-                <a  routerLink="/novio/traje-novio" class="navbar__sub-cat-link">Traje de novio</a>
-                <a  routerLink="/novio/boutonnier" class="navbar__sub-cat-link">Boutonnier</a>
-                <a  routerLink="/novio/ajuares" class="navbar__sub-cat-link">Ajuares</a>
+            <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{'navbar__sub-cat--expanded' : toggle_novio, 'navbar__sub-cat--collapsed': !toggle_novio}">
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/novio/traje-novio" class="navbar__sub-cat-link">Traje de novio</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/novio/boutonnier" class="navbar__sub-cat-link">Boutonnier</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/novio/ajuares" class="navbar__sub-cat-link">Ajuares</a>
             </div>
         </div>
         <div class="navbar__item">
@@ -42,17 +42,17 @@
                 <span class="button-nav__text">Recepción</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_recepcion}"></i>
             </div>
-            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_recepcion, 'navbar__sub-cat--collapsed': !toggle_recepcion}">
-                <a  routerLink="/recepcion/salones-eventos" class="navbar__sub-cat-link">Salones de eventos</a>
-                <a  routerLink="/recepcion/estilos-decoraciones" class="navbar__sub-cat-link">Estilos de decoraciones</a>
-                <a  routerLink="/recepcion/sillas-mesas" class="navbar__sub-cat-link">Sillas y mesas</a>
-                <a  routerLink="/recepcion/articulos-eventos" class="navbar__sub-cat-link">Articulos para eventos</a>
-                <a  routerLink="/recepcion/platos" class="navbar__sub-cat-link">Platos</a>
-                <a  routerLink="/recepcion/cuberteria-manteleria" class="navbar__sub-cat-link">Cubertería mantelería</a>
+            <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{'navbar__sub-cat--expanded' : toggle_recepcion, 'navbar__sub-cat--collapsed': !toggle_recepcion}">
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/recepcion/salones-eventos" class="navbar__sub-cat-link">Salones de eventos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/recepcion/estilos-decoraciones" class="navbar__sub-cat-link">Estilos de decoraciones</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/recepcion/sillas-mesas" class="navbar__sub-cat-link">Sillas y mesas</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/recepcion/articulos-eventos" class="navbar__sub-cat-link">Articulos para eventos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/recepcion/platos" class="navbar__sub-cat-link">Platos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/recepcion/cuberteria-manteleria" class="navbar__sub-cat-link">Cubertería mantelería</a>
             </div>
         </div>
         <div class="navbar__item">
-            <a routerLink="/invitaciones-suveniles">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/invitaciones-suveniles">
                 <div class="button-nav" >
                     <img class="button-nav__img" src="assets/img/invitation.svg" alt="">
                 
@@ -68,13 +68,13 @@
                 <span class="button-nav__text">Fotografía y video</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_foto_video}"></i>
             </div>
-            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_foto_video, 'navbar__sub-cat--collapsed': !toggle_foto_video}">
-                <a  routerLink="/foto-video/secciones" class="navbar__sub-cat-link">Secciones de fotos</a>
-                <a  routerLink="/foto-video/locaciones" class="navbar__sub-cat-link">Locaciones</a>
+            <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active" [ngClass]="{'navbar__sub-cat--expanded' : toggle_foto_video, 'navbar__sub-cat--collapsed': !toggle_foto_video}">
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/foto-video/secciones" class="navbar__sub-cat-link">Secciones de fotos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/foto-video/locaciones" class="navbar__sub-cat-link">Locaciones</a>
             </div>
         </div>
         <div class="navbar__item">
-            <a routerLink="/sonido-musica-ambientaciones">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLinkActive="navbar__sub-cat-link-active" routerLink="/sonido-musica-ambientaciones">
                 <div class="button-nav">
                     <img class="button-nav__img" src="assets/img/volume.svg" alt="">
                     <span class="button-nav__text">Sonido, música y ambientaciones</span>
@@ -88,15 +88,15 @@
                 <span class="button-nav__text">Banquetes</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_banquetes}"></i>
             </div>
-            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_banquetes, 'navbar__sub-cat--collapsed': !toggle_banquetes}">
-                <a  routerLink="/banquetes/postres-dulces" class="navbar__sub-cat-link">Postres dulces</a>
-                <a  routerLink="/banquetes/postres-salados" class="navbar__sub-cat-link">Postres salados</a>
-                <a  routerLink="/banquetes/buffet" class="navbar__sub-cat-link">Buffet</a>
-                <a  routerLink="/banquetes/bebida" class="navbar__sub-cat-link">Bebida</a>
+            <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active" [ngClass]="{'navbar__sub-cat--expanded' : toggle_banquetes, 'navbar__sub-cat--collapsed': !toggle_banquetes}">
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/banquetes/postres-dulces" class="navbar__sub-cat-link">Postres dulces</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/banquetes/postres-salados" class="navbar__sub-cat-link">Postres salados</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/banquetes/buffet" class="navbar__sub-cat-link">Buffet</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/banquetes/bebida" class="navbar__sub-cat-link">Bebida</a>
             </div>
         </div>
         <div class="navbar__item">
-            <a routerLink="/centro-mesas">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/centro-mesas">
                 <div class="button-nav">
                     <img class="button-nav__img" src="assets/img/dining-table.svg" alt="">
                 
@@ -111,15 +111,15 @@
                 <span class="button-nav__text">Flores</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_flores}"></i>
             </div>
-            <div class="navbar__sub-cat" [ngClass]="{'navbar__sub-cat--expanded' : toggle_flores, 'navbar__sub-cat--collapsed': !toggle_flores}">
-                <a  routerLink="/flores/altos" class="navbar__sub-cat-link">Altos</a>
-                <a  routerLink="/flores/bajitos" class="navbar__sub-cat-link">Bajitos</a>
-                <a  routerLink="/flores/estilos" class="navbar__sub-cat-link">Estilos</a>
-                <a  routerLink="/flores/otros" class="navbar__sub-cat-link">Otros</a>
+            <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active" [ngClass]="{'navbar__sub-cat--expanded' : toggle_flores, 'navbar__sub-cat--collapsed': !toggle_flores}">
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/flores/altos" class="navbar__sub-cat-link">Altos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/flores/bajitos" class="navbar__sub-cat-link">Bajitos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/flores/estilos" class="navbar__sub-cat-link">Estilos</a>
+                <a  routerLinkActive="navbar__sub-cat-link-active" routerLink="/flores/otros" class="navbar__sub-cat-link">Otros</a>
             </div>
         </div>
         <div class="navbar__item">
-            <a routerLink="/ceremonia">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/ceremonia">
                 <div class="button-nav">
                     <img class="button-nav__img" src="assets/img/ceremony.svg" alt="">
                 
@@ -128,7 +128,7 @@
             </a>
         </div>
         <div class="navbar__item">
-            <a routerLink="/cumpleanos">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/cumpleanos">
                 <div class="button-nav">
                     <img class="button-nav__img" src="assets/img/giftbox.svg" alt="">
                 
@@ -137,7 +137,7 @@
             </a>
         </div>
         <div class="navbar__item">
-            <a routerLink="/baby-shower">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/baby-shower">
                 <div class="button-nav">
                     <img class="button-nav__img" src="assets/img/baby-shower.svg" alt="">
                 
@@ -146,7 +146,7 @@
             </a>
         </div>
         <div class="navbar__item">
-            <a routerLink="/aniversario">
+            <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/aniversario">
                 <div class="button-nav">
                     <img class="button-nav__img" src="assets/img/aniversary.svg" alt="">
                 

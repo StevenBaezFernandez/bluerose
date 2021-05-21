@@ -33,9 +33,9 @@ export class MainComponent implements OnInit {
     editar_nombre: true
   }
   tabs:any = {
-    galeria: true,
+    galeria: false,
     paquetes: false,
-    proveedores: false,
+    proveedores: true,
     items_paq: false
   }
   form_add_prov:any = {
