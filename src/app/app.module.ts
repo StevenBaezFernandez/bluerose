@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { FormsModule } from '@angular/forms';
 import { IdlessPipe } from './idless.pipe';
 import { TitlePipe } from './title.pipe';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TitlePipe } from './title.pipe';
     NavbarComponent,
     MainComponent,
     IdlessPipe,
-    TitlePipe
+    TitlePipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
