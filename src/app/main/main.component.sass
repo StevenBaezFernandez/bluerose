@@ -99,6 +99,16 @@ $color-btn-enviar: #2E9AFE
 .galeria
     max-width: 100%
     display: none
+.galeria__container_menssage_no_data
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+.galeria__container_menssage_no_data-text
+    color: #555
+    font-weight: normal
+.galeria__container_menssage_no_data-image
+    width: 200px
 .galeria-hide
     display: none
 .galeria-show
@@ -129,6 +139,7 @@ $color-btn-enviar: #2E9AFE
 .paquetes
     display: grid
     grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: minmax(110px, auto)
     grid-gap: 10px
     padding: 30px 0px
     display: none

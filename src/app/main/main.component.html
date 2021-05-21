@@ -28,7 +28,7 @@
             </div>
         </div>            
         <div class="content-component__body">
-            <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}">
+            <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}" *ngIf="!empty_data_api">
                 <div class="galeria__grid-imgs">
 
                     <div class="galeria__grid-img-container" *ngFor="let img of data_api; index as i">
@@ -40,6 +40,12 @@
                         </div>
                         <img src="{{img.url_img}}" data-img_id="{{img.id_img}}" class="galeria__grid-img" alt="">
                     </div>
+                </div>
+            </div>
+            <div class="galeria" [ngClass]="{'galeria-show': tabs.galeria, 'galeria-hide': !tabs.galeria}" *ngIf="empty_data_api">
+                <div class="galeria__container_menssage_no_data">
+                    <h3 class="galeria__container_menssage_no_data-text">No hay elementos aqui</h3>
+                    <img class="galeria__container_menssage_no_data-image" src="assets/img/no-data.svg" alt="">
                 </div>
             </div>
             <div class="paquetes" [ngClass]="{'paquetes-show': tabs.paquetes, 'paquetes-hide': !tabs.paquetes}">

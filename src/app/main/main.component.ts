@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   url:any;
   cat2:string;
   show_option_panel = false;
+  empty_data_api:boolean;
 
   id_img_delete:string;
   url_img_delete:string;
@@ -32,8 +33,8 @@ export class MainComponent implements OnInit {
     editar_nombre: true
   }
   tabs:any = {
-    galeria: false,
-    paquetes: true,
+    galeria: true,
+    paquetes: false,
     proveedores: false,
     items_paq: false
   }
@@ -251,6 +252,11 @@ export class MainComponent implements OnInit {
           this.show_option_panel = false;
         },500);
         this.data_api = data;
+        if(this.data_api.length === 0){
+          this.empty_data_api = true;
+        }else{
+          this.empty_data_api = false;
+        }
         console.log(data);
       });
   }
