@@ -9,11 +9,11 @@
     <div class="navbar__separator"></div>
     <div class="navbar__container-body">
         <div class="navbar__item">
-            <div class="button-nav button-nav--active" (click)="toggle_novia = !toggle_novia">
+            <div class="button-nav button-nav--active" id="button-nav_novia" (click)="toggle_novia = !toggle_novia">
                 <img class="button-nav__img" src="assets/img/novia.svg" alt="">
                                        
-                <span  class="button-nav__text" [ngClass]="{'button-nav__text--active': toggle_novia}">Novia</span>
-                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_novia}"></i>
+                <span  class="button-nav__text">Novia</span>
+                <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active':  toggle_novia}"></i>
             </div>
             <div class="navbar__sub-cat" routerLinkActive="navbar__sub-cat-link-active"  [ngClass]="{'navbar__sub-cat--expanded' : toggle_novia, 'navbar__sub-cat--collapsed': !toggle_novia}">
                 <a routerLinkActive="navbar__sub-cat-link-active" routerLink="/novia/maquillaje-peinado" class="navbar__sub-cat-link">Maquillaje y peinados</a>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav" (click)="toggle_novio = !toggle_novio">
+            <div class="button-nav" id="button-nav_novio" (click)="toggle_novio = !toggle_novio">
                 <img class="button-nav__img" src="assets/img/novio.svg" alt="">                 
                                      
                 <span class="button-nav__text">Novio</span>
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="navbar__item">
-            <div class="button-nav" (click)="toggle_recepcion = !toggle_recepcion">
+            <div class="button-nav" id="button-nav_recepcion" (click)="toggle_recepcion = !toggle_recepcion">
                 <img class="button-nav__img" src="assets/img/recepcion.svg" alt="">                   
                                      
                 <span class="button-nav__text">Recepción</span>
@@ -61,9 +61,8 @@
             </a>
         </div>
         <div class="navbar__item">
-            <div class="button-nav" (click)="toggle_foto_video = !toggle_foto_video">
-                <img class="button-nav__img" src="assets/img/foto-video.svg" alt="">
-                    
+            <div class="button-nav" id="button-nav_foto-video" (click)="toggle_foto_video = !toggle_foto_video">
+                <img class="button-nav__img" src="assets/img/foto-video.svg" alt="">                    
                                      
                 <span class="button-nav__text">Fotografía y video</span>
                 <i class="button-nav__arrow fas fa-chevron-right" [ngClass]="{'button-nav__arrow--active': toggle_foto_video}"></i>
@@ -82,7 +81,7 @@
             </a>
         </div>
         <div class="navbar__item">
-            <div class="button-nav" (click)="toggle_banquetes = !toggle_banquetes">
+            <div class="button-nav" id="button-nav_banquetes" (click)="toggle_banquetes = !toggle_banquetes">
                 <img class="button-nav__img" src="assets/img/banquet.svg" alt="">
                                      
                 <span class="button-nav__text">Banquetes</span>
@@ -105,7 +104,7 @@
             </a>
         </div>
         <div class="navbar__item">
-            <div class="button-nav" (click)="toggle_flores = !toggle_flores">
+            <div class="button-nav" id="button-nav_flores" (click)="toggle_flores = !toggle_flores">
                <img class="button-nav__img" src="assets/img/bouquet.svg" alt="">
                                      
                 <span class="button-nav__text">Flores</span>

@@ -10,10 +10,21 @@ import { ApiService } from '../services/api.service';
 export class MainComponent implements OnInit {
 
   data_api:any;
-  url:any;
+  url:any = {
+    cat1: null,
+    cat2: null
+  }
   cat2:string;
   show_option_panel = false;
   empty_data_api:boolean;
+  selected_cat1_menu = {
+    novia: false,
+    novio: false,
+    recepcion: false,
+    foto_video: false,
+    banquetes: false,
+    flores: false
+  }
 
   id_img_delete:string;
   url_img_delete:string;
@@ -91,6 +102,20 @@ export class MainComponent implements OnInit {
       this.get_data();
       this.setup_message(true, false, 'imagen cargada correctamente!', true);
     });
+  }
+
+  reset_cat1_menu(){
+    this.selected_cat1_menu.novia = false;
+    this.selected_cat1_menu.novio = false;
+    this.selected_cat1_menu.recepcion = false;
+    this.selected_cat1_menu.foto_video = false;
+    this.selected_cat1_menu.banquetes = false;
+    this.selected_cat1_menu.flores = false;
+
+  }
+
+  get_router_container(event:any){
+    console.log(event)
   }
 
   get_paq_to_edit(paq_id:number, paq_name:string){
@@ -378,14 +403,31 @@ export class MainComponent implements OnInit {
   
   ngOnInit(): void {
     // capturando los datos de la ruta
-    this.rutaActiva.params.subscribe((params: Params)=>{
-      this.url = params;  
-      this.get_data();    
+    this.rutaActiva.url.subscribe((params: Params)=>{
+      this.url.cat1 = params[0].path;
+      if(params[1].path){
+        this.url.cat2 = params[1].path;
+      }
+      this.get_data();
+
+      // const buttons_nav = document.querySelectorAll('.button-nav');
+      // buttons_nav.forEach(btn =>{
+      //   btn.classList.remove('button-nav--active');
+      // });
+      // const btn_nav_seletd = document.querySelector(`#button-nav_${params.cat1}`) as HTMLBodyElement;
+      
+      // btn_nav_seletd.classList.add('button-nav--active');
+      // console.log(this.selected_cat1_menu);
+
+      
     });
+    
 
     var height = window.screen.height * .8;
     let cont_component = document.querySelector('.content-component__body') as HTMLBodyElement;
     cont_component.style.height = `${height}px`;
+
+    
 
   }
 
