@@ -10,10 +10,7 @@ import { ApiService } from '../services/api.service';
 export class MainComponent implements OnInit {
 
   data_api:any;
-  url:any = {
-    cat1: null,
-    cat2: null
-  }
+  url:any;
   cat2:string;
   show_option_panel = false;
   empty_data_api:boolean;
@@ -403,31 +400,24 @@ export class MainComponent implements OnInit {
   
   ngOnInit(): void {
     // capturando los datos de la ruta
-    this.rutaActiva.url.subscribe((params: Params)=>{
-      this.url.cat1 = params[0].path;
-      if(params[1].path){
-        this.url.cat2 = params[1].path;
-      }
+    this.rutaActiva.params.subscribe((params: Params)=>{
+      this.url = params;  
       this.get_data();
 
-      // const buttons_nav = document.querySelectorAll('.button-nav');
-      // buttons_nav.forEach(btn =>{
-      //   btn.classList.remove('button-nav--active');
-      // });
-      // const btn_nav_seletd = document.querySelector(`#button-nav_${params.cat1}`) as HTMLBodyElement;
-      
-      // btn_nav_seletd.classList.add('button-nav--active');
-      // console.log(this.selected_cat1_menu);
-
-      
+      const buttons_nav = document.querySelectorAll('.button-nav');
+      buttons_nav.forEach(btn =>{
+        btn.classList.remove('button-nav--active');
+      });
     });
+
+    const btn_nav_seletd = document.getElementById(`button-nav_${this.url.cat1}`) as HTMLBodyElement;    
+    btn_nav_seletd.classList.add('button-nav--active');
+    console.log(btn_nav_seletd);
     
 
     var height = window.screen.height * .8;
     let cont_component = document.querySelector('.content-component__body') as HTMLBodyElement;
     cont_component.style.height = `${height}px`;
-
-    
 
   }
 

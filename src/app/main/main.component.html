@@ -139,7 +139,7 @@
         <div class="option-panel__form " id="editar-nombre-paq">
             <h2 class="option-panel__title">Editar paquete numero1</h2>
             <label for="nombre-paquete" class="option-panel__label">Nuevo nombre del paquete:</label>
-            <input type="text" class="option-panel__input" id="nombre-paquete" [(ngModel)]="form_edit_name_paq.nombre_paq">
+            <input type="text" class="option-panel__input" [(ngModel)]="form_edit_name_paq.nombre_paq">
             {{form_edit_name_paq.id}}
             <div class="option-panel__form-container-btn-loader">
                 <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
@@ -153,7 +153,7 @@
         <div class="option-panel__form " id="agregar-paq">
             <h2 class="option-panel__title">Agregar paquete</h2>
             <label for="nombre-paquete" class="option-panel__label">Nuevo paquete:</label>
-            <input type="text" class="option-panel__input" id="nombre-paquete" [(ngModel)]="form_add_paq.nombre_paq">
+            <input type="text" class="option-panel__input" [(ngModel)]="form_add_paq.nombre_paq">
             {{form_edit_name_paq.id}}
             <div class="option-panel__form-container-btn-loader">
                 <div class="lds-ring" [ngClass]="{'active':  loader_icon}"><div></div><div></div><div></div><div></div></div>
