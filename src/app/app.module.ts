@@ -15,6 +15,7 @@ import { IdlessPipe } from './idless.pipe';
 import { TitlePipe } from './title.pipe';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { TokenService } from './services/token.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule
     
   ],
-  providers: [ApiService],
+  providers: [ApiService, TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

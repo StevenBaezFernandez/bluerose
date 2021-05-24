@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-main',
@@ -263,7 +264,7 @@ export class MainComponent implements OnInit {
   //   console.log(this.items_paq);
   // }
   
-  constructor(private rutaActiva: ActivatedRoute, private _service: ApiService) { }
+  constructor(private rutaActiva: ActivatedRoute, private _service: ApiService,private _tokenService: TokenService, private router: Router) { }
 
   // ------Crud methods------
   get_data(){      
@@ -399,6 +400,17 @@ export class MainComponent implements OnInit {
   }
   
   ngOnInit(): void {
+
+  if(this._tokenService.token == 'invalid'){
+    this.router.navigate(['/login']);
+  }
+
+
+
+
+
+
+
     // capturando los datos de la ruta
     this.rutaActiva.params.subscribe((params: Params)=>{
       this.url = params;  
