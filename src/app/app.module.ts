@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { IdlessPipe } from './idless.pipe';
 import { TitlePipe } from './title.pipe';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     MainComponent,
     IdlessPipe,
     TitlePipe,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

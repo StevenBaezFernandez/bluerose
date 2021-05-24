@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="wraper-component">
     <div class="header-component">
         <div class="header-component__text-info">
@@ -106,7 +107,7 @@
             <!-- items paquetes -->
             <div class="items-paq" [ngClass]="{'items-paq-show': tabs.items_paq, 'items-paq-hide': !tabs.items_paq}">
                 <div class="items-paq__header">
-                    <h2 class="items-paq__title">{{ data_api.paquete }}</h2>
+                    <h2 class="items-paq__title" *ngIf="data_api">{{ data_api.paquete }}</h2>
                     <div class="items-paq__header-selected" [ngClass]="{'items-paq__header-selected-show': show_cont_i_t_delete }">
                         <p>
                             {{ items_to_delete.length }} seleccionados
