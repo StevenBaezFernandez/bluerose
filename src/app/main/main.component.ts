@@ -310,16 +310,24 @@ export class MainComponent implements OnInit {
   add_items_paq(){
     const { cat1, cat2='none'} = this.url;
     this._service.post(cat1, cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
-      console.log(res);
-      this.setup_message(true, false, '¡Elemento guardado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento guardado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo guardar el elemento', false);
+      }
       this.get_items_paq(this.paquete);
   });
   }
   add(){
     const { cat1, cat2='none'} = this.url;
     this._service.post(cat1, cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
-      console.log(res);
-      this.setup_message(true, false,  '¡Elemento guardado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento guardado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo guardar el elemento', false);
+      }
       this.get_data();
   });
   }
@@ -327,8 +335,12 @@ export class MainComponent implements OnInit {
   add_paq(){
     const { cat1, cat2='none'} = this.url;
     this._service.post(cat1, cat2, this.get_cat3(),this.paquete, JSON.stringify(this.get_data_to_send())).subscribe( res =>{
-      console.log(res);
-      this.setup_message(true, false,  '¡Elemento guardado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento guardado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo guardar el elemento', false);
+      }
       this.get_data();
       console.log(this.url);
   });
@@ -337,55 +349,83 @@ export class MainComponent implements OnInit {
   edit_prov(){
     
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_prov.id, JSON.stringify(this.form_edit_prov)).subscribe( res =>{
-        console.log(res);
-        this.setup_message(true, false,  '¡Elemento editado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento editado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo editar el elemento', false);
+      }
         this.get_data();
     });
   }
   edit_item_paq(){
     
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_edit_item, JSON.stringify(this.form_edit_item_paq)).subscribe( res =>{
-        console.log(res);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
         this.setup_message(true, false, '¡Elemento editado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo editar el elemento', false);
+      }
         this.get_items_paq(this.paquete);
     });
   }
   edit_name_paq(){
     this._service.put(this.url.cat1, this.url.cat2, this.get_cat3(), this.form_edit_name_paq.id, JSON.stringify(this.form_edit_name_paq)).subscribe( res =>{
-      console.log(res);
-      this.setup_message(true, false, '¡Elemento editado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento editado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo editar el elemento', false);
+      }
       this.get_data();
   });
   }
   delete(){
     
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_delete).subscribe(res =>{
-      console.log(res);
-      this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo eliminar el elemento', false);
+      }
       this.get_data();
     });
   }
   delete_paq(){
     
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.paq_to_delete).subscribe(res =>{
-      console.log(res);
-      this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo eliminar el elemento', false);
+      }
       this.get_data();
     });
   }
   delete_item_paq(){
     
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_item_paq_delete.id).subscribe(res =>{
-      console.log(res);
-      this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elemento eliminado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo eliminar el elemento', false);
+      }
       this.get_items_paq(this.paquete);
     });
   }
   delete_img(){
     
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.img_to_delete).subscribe(res =>{
-      console.log(res);
-      this.setup_message(true, false, '¡Imagen eliminada correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Imagen eliminada correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo eliminar la imagen', false);
+      }
       this.get_data();
     });
   }
@@ -397,9 +437,12 @@ export class MainComponent implements OnInit {
       items += (item + '/');
     });
     this._service.delete(this.url.cat1, this.url.cat2, this.get_cat3(), this.id_item_paq_delete.id, items).subscribe(res =>{
-      this.vaciar_items_to_delete();
-      console.log(res);
-      this.setup_message(true, false, '¡Elementos eliminados correctamente!', true);
+      let resJson = JSON.parse(res);
+      if(resJson.mensaje){
+        this.setup_message(true, false, '¡Elementos eliminado correctamente!', true);
+      }else{
+        this.setup_message(true, false, 'No se pudo eliminar los elementos', false);
+      }
       this.get_items_paq(this.paquete);
     });
   }

@@ -10,12 +10,17 @@ $color-btn-enviar: #2E9AFE
     padding: 10px
     margin-bottom: 10px
 .header-component__message
-    background: #4ecc4533
     visibility: hidden
     padding: 0px 20px
     border-radius: 2px
-    color: #007722
     transform: translateY(-75px)
+    &.success
+        background: #4ecc4533
+        color: #007722
+    &.fealure
+        background: #cc454533
+        color: #770000
+
 @keyframes message
     0%
         visibility: hidden
