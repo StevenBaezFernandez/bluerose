@@ -92,6 +92,11 @@ export class MainComponent implements OnInit {
 
   loader_icon:boolean = false;
 
+  close_session(){
+    localStorage.setItem("token", 'false');
+    this.router.navigate(['/login']);
+  }
+
   show_file(e){
     const {cat1, cat2='none'} = this.url;
     const file = e.target.files[0];
@@ -402,7 +407,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
 
     
-    if(!this._tokenService.getToken()){
+    if(this._tokenService.getToken() == 'false'){
       this.router.navigate(['/login']);
     }
 

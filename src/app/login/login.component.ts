@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.__tokenService.getToken()){
+    if(this.__tokenService.getToken() == 'true'){
       this.router.navigate(['/novia/maquillaje-peinado']);
     }
 

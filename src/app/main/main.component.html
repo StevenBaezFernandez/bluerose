@@ -9,7 +9,7 @@
         <div class="header-component__message" [ngClass]="{'header-component__message-show': message_alert.show, 'header-component__message-hide': message_alert.hide}">
             <p>{{message_alert.text}}</p>
         </div>
-        <div class="header-component__photo-profile">
+        <div class="header-component__photo-profile" (click)="close_session()">
             <img src="assets/img/profile.svg" class="header-component__photo-profile-img" alt="">
         </div>
     </div>
