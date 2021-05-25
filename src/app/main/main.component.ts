@@ -401,15 +401,10 @@ export class MainComponent implements OnInit {
   
   ngOnInit(): void {
 
-  if(this._tokenService.token == 'invalid'){
-    this.router.navigate(['/login']);
-  }
-
-
-
-
-
-
+    
+    if(!this._tokenService.getToken()){
+      this.router.navigate(['/login']);
+    }
 
     // capturando los datos de la ruta
     this.rutaActiva.params.subscribe((params: Params)=>{

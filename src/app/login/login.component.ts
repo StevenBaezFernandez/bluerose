@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.__service.session(this.login_form.user, this.login_form.pass).subscribe(res =>{
       console.log(res);
-      this.__tokenService.token = res;
+      this.__tokenService.setToken(res);
       if(res === 'invalid'){
         console.log('mensaje de error');
       }else{
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.__tokenService.token !== 'invalid'){
+    if(this.__tokenService.getToken()){
       this.router.navigate(['/novia/maquillaje-peinado']);
     }
 
