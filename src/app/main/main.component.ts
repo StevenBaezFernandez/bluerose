@@ -443,6 +443,7 @@ export class MainComponent implements OnInit {
       }else{
         this.setup_message(true, false, 'No se pudo eliminar los elementos', false);
       }
+      this.vaciar_items_to_delete();
       this.get_items_paq(this.paquete);
     });
   }
