@@ -42,9 +42,9 @@ export class MainComponent implements OnInit {
     editar_nombre: true
   }
   tabs:any = {
-    galeria: false,
+    galeria: true,
     paquetes: false,
-    proveedores: true,
+    proveedores: false,
     items_paq: false
   }
   form_add_prov:any = {
@@ -463,12 +463,12 @@ export class MainComponent implements OnInit {
       buttons_nav.forEach(btn =>{
         btn.classList.remove('button-nav--active');
       });
+      const btn_nav_seletd = document.getElementById(`button-nav_${this.url.cat1}`) as HTMLBodyElement;    
+      btn_nav_seletd.classList.add('button-nav--active');
+      console.log(btn_nav_seletd);
+      
     });
 
-    const btn_nav_seletd = document.getElementById(`button-nav_${this.url.cat1}`) as HTMLBodyElement;    
-    btn_nav_seletd.classList.add('button-nav--active');
-    console.log(btn_nav_seletd);
-    
 
     var height = window.screen.height * .8;
     let cont_component = document.querySelector('.content-component__body') as HTMLBodyElement;
