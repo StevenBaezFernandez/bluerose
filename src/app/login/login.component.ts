@@ -14,15 +14,15 @@ export class LoginComponent implements OnInit {
     user: '',
     pass: ''
   }
-
+  fail:boolean;
   constructor(private __service: ApiService, private __tokenService: TokenService, private router: Router) { }
 
   login(){
     this.__service.session(this.login_form.user, this.login_form.pass).subscribe(res =>{
       console.log(res);
       this.__tokenService.setToken(res);
-      if(res === 'invalid'){
-        console.log('mensaje de error');
+      if(!res){
+        this.fail = true;
       }else{
         this.router.navigate(['/novia/maquillaje-peinado']);
       }
