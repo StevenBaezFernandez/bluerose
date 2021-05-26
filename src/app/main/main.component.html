@@ -31,6 +31,12 @@
                 <div class="container-btn-pack" *ngIf="tabs.paquetes">
                     <button (click)="toggle_option_panel(); toggle_forms('agregar-paq');" class="paquetes__btn_agregar">Agregar nuevo paquete <i class="fas fa-plus"></i></button>
                 </div>
+                <div class="container-btn-pack" *ngIf="tabs.items_paq">
+                    <button class="items-paq__btn-add" (click)="toggle_option_panel(); toggle_forms('agregar-item-paq');">
+                        <span class="items-paq__btn-add-content">Agregar nuevo item</span>
+                        <i class="items-paq__btn-add-icon fas fa-plus"></i>
+                    </button>
+                </div>
                 <div class="container-btn-prov" *ngIf="tabs.proveedores">
                     <button class="proveedores__btn-agregar" data-option="agregar-proveedor" (click)="toggle_option_panel(); toggle_forms('agregar-proveedor');">
                         <span class="proveedores__btn-agregar-text">Agregar nuevo proveedor</span>
@@ -115,10 +121,6 @@
                             <button class="items-paq__header-btns" (click)="delete_items_paq()" >Borrar</button>
                         </p>
                     </div>
-                    <button class="items-paq__btn-add" (click)="toggle_option_panel(); toggle_forms('agregar-item-paq');">
-                        <span class="items-paq__btn-add-content">Nuevo</span>
-                        <i class="items-paq__btn-add-icon fas fa-plus"></i>
-                    </button>
                 </div>
 
                 <ul class="items-list">
