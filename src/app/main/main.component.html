@@ -7,7 +7,11 @@
             <h2 class="header-component__text-info-cat2">{{url.cat2 | title}}</h2>
         </div>
         <div class="header-component__message" [ngClass]="{'header-component__message-show': message_alert.show, 'header-component__message-hide': message_alert.hide, 'success': message_alert.success, 'fealure': !message_alert.success}">
-            <p>{{message_alert.text}}</p>
+            <p>
+                <i class="header-component__message-icon fas fa-exclamation-circle" [ngClass]="{'active': !message_alert.success}"></i>
+                <i class="header-component__message-icon fas fa-check-circle" [ngClass]="{'active': message_alert.success}"></i>
+                {{message_alert.text}}
+            </p>
         </div>
         <div class="header-component__photo-profile" (click)="close_session()">
             <i class="fas fa-sign-out-alt header-component__photo-profile-img"></i>
